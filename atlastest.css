@@ -594,3 +594,77 @@ body{ background-size: 115% auto; }  /* try 110–130% */
 }
 
 .big-title .break { display:block; margin-top:.06em; }
+
+/* ===== Great Blue Hole plate ===== */
+#gbh { max-width: 1200px; margin: 0 auto 80px; padding: 0 20px; background: transparent; }
+#gbh .gbh-title {
+  font-family: "antiquarian-scribe", serif;
+  text-align: center;
+  font-size: 96px;            /* desktop */
+  line-height: 1.05;
+  letter-spacing: 0.04em;
+  margin: 40px 0 8px;
+}
+#gbh .gbh-sub {
+  font-family: "antiquarian-scribe", serif;
+  text-align: center;
+  font-size: 48px;
+  line-height: 1.05;
+  letter-spacing: 0.04em;
+  margin: 0 0 28px;
+}
+#gbh .gbh-lead {
+  max-width: 740px;
+  margin: 0;                  /* left aligned, not centered */
+  text-align: left;
+  line-height: 1.5;
+  font-size: 18px;
+}
+
+/* two-column media */
+#gbh .gbh-left  { width: 45%; float: left;  margin-top: 24px; }
+#gbh .gbh-right { width: 50%; float: right; margin-top: -20px; } /* lift the blue-hole slightly */
+
+#gbh .gbh-left figure,
+#gbh .gbh-right figure {
+  margin: 0 0 22px 0;
+  border: none;               /* remove card look */
+  padding: 0;
+  background: transparent;
+  box-shadow: none;
+}
+#gbh .gbh-left img,
+#gbh .gbh-right img { display: block; width: 100%; height: auto; }
+
+/* dotted red curve */
+#gbh .gbh-dots {
+  position: relative;
+  left: 46%;
+  margin: 24px 0;
+}
+
+/* clear floats before the second paragraph */
+#gbh::after { content: ""; display: block; clear: both; }
+
+#gbh .gbh-body {
+  max-width: 740px;
+  margin: 24px 0 0 0;         /* left aligned under columns */
+  text-align: left;
+  line-height: 1.5;
+  font-size: 18px;
+}
+
+/* simple responsiveness */
+@media (max-width: 1024px) {
+  #gbh .gbh-title { font-size: 72px; }
+  #gbh .gbh-sub   { font-size: 36px; }
+  #gbh .gbh-left, #gbh .gbh-right { width: 48%; }
+}
+@media (max-width: 720px) {
+  #gbh .gbh-title { font-size: 48px; }
+  #gbh .gbh-sub   { font-size: 28px; }
+  #gbh .gbh-left, #gbh .gbh-right, #gbh .gbh-dots {
+    float: none; width: 100%; margin: 16px 0;
+  }
+  #gbh .gbh-lead, #gbh .gbh-body { max-width: 92%; }
+}
