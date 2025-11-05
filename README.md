@@ -24,3 +24,9 @@ Sober, steady typography and generous white margins.
 
 **Marginalia (rotate through):**  
 “Observed; no conclusion.” • “Coverage incomplete — by design.” • “Handle the blank with care.”
+
+## References
+
+- [Antiquarian Scribe – Adobe Fonts](https://fonts.adobe.com/fonts/antiquarian-scribe)
+- [Source Serif 4 – Google Fonts](https://fonts.google.com/specimen/Source+Serif+4)
+- [Atlas image references](https://github.com/JamesDubzW/atlas-test/tree/main/references)
