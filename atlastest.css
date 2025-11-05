@@ -1,596 +1,546 @@
-/* ===== Atlas of Honest Entrances - Refined CSS ===== */
+/* ===== Atlas of Honest Entrances - Clean Single Stylesheet ===== */
 
-/* Reset */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  
-  /* Typography Variables */
-  :root {
-    --display: "antiquarian-scribe", serif;
-    --body: "Source Serif 4", Georgia, serif;
-    --meta: "Courier New", monospace;
-    
-    /* Colors - clean, no parchment */
-    --ink: #1a1a1a;
-    --paper: #fdfcfa;
-    --gray: #666;
-    --accent: #8b4513;
-  }
-  
-  /* Base */
-  body {
-    font-family: var(--body);
-    color: var(--ink);
-    background: var(--paper);
-    line-height: 1.6;
-    font-size: 16px;
-  }
-  
-  /* Container layouts */
-  .container {
-    display: flex;
-    flex-wrap: wrap;
-    margin-top: 200px;
-    max-width: 1400px;
-    margin-left: auto;
-    margin-right: auto;
-    padding: 0 40px;
-  }
-  
-  .casestudy {
-    margin-top: 250px;
-  }
-  
-  /* Width classes for asymmetric layout */
-  .width100 {
-    width: 100%;
-  }
-  
-  .width75 {
-    width: 72%;
-    padding-right: 3%;
-  }
-  
-  .width25 {
-    width: 28%;
-    padding-left: 2%;
-  }
-  
-  /* Large Script Titles - Your signature element */
-  .title {
-    font-family: var(--display);
-    font-size: clamp(60px, 8vw, 100px);
-    font-weight: 400;
-    line-height: 1.1;
-    margin-bottom: 60px;
-    letter-spacing: 0.02em;
-  }
-  
-  .title img {
-    height: 80px;
-    width: auto;
-    vertical-align: middle;
-    margin-right: 20px;
-  }
-  
-  /* Main body text */
-  .text {
-    font-family: var(--body);
-    font-size: 15px;
-    line-height: 1.7;
-    font-style: italic;
-  }
-  
-  .text p {
-    margin-bottom: 20px;
-    text-align: justify;
-  }
-  
-  /* Hero images with captions */
-  .width75 figure {
-    width: 100%;
-    margin-bottom: 30px;
-  }
-  
-  .width75 img {
-    width: 100%;
-    height: auto;
-    display: block;
-  }
-  
-  /* Figure captions - adding authority */
-  figcaption {
-    margin-top: 12px;
-    font-family: var(--meta);
-    font-size: 11px;
-    line-height: 1.4;
-    color: var(--gray);
-  }
-  
-  .fig-number {
-    font-weight: bold;
-  }
-  
-  /* Notes/Metadata section */
-  .notes {
-    margin-top: 40px;
-    padding-top: 20px;
-    border-top: 1px solid rgba(0,0,0,0.1);
-    font-family: var(--meta);
-    font-size: 10px;
-    line-height: 1.5;
-    color: var(--gray);
-  }
-  
-  .notes h4 {
-    font-size: 9px;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    margin-bottom: 8px;
-    font-weight: normal;
-  }
-  
-  /* Quote sections - large script */
-  .quote {
-    margin: 200px auto;
-    max-width: 1000px;
-    padding: 0 40px;
-    text-align: center;
-  }
-  
-  .quote-text {
-    font-family: var(--display);
-    font-size: clamp(40px, 5vw, 70px);
-    line-height: 1.2;
-    font-style: italic;
-  }
-  
-  .quote img {
-    max-width: 100%;
-    height: auto;
-    margin: 40px 0;
-  }
-  
-  /* Marginalia - your poetic asides */
-  .marginalia {
-    font-family: var(--display);
-    font-size: 24px;
-    font-style: italic;
-    text-align: center;
-    margin: 80px auto;
-    max-width: 600px;
-    color: var(--gray);
-    letter-spacing: 0.05em;
-  }
-  
-  /* Metadata cards for Son Doong section */
-  .meta {
-    margin-top: 30px;
-  }
-  
-  .card {
-    background: rgba(255,255,255,0.5);
-    border: 1px solid rgba(0,0,0,0.08);
-    padding: 15px;
-    margin-bottom: 15px;
-    font-family: var(--meta);
-    font-size: 10px;
-  }
-  
-  .card h3 {
-    font-size: 9px;
-    text-transform: uppercase;
-    letter-spacing: 0.15em;
-    margin-bottom: 8px;
-    font-weight: normal;
-  }
-  
-  .card p, .card li {
-    line-height: 1.5;
-    color: var(--gray);
-  }
-  
-  .card ul {
-    list-style: none;
-    padding-left: 0;
-  }
-  
-  .card li {
-    margin-bottom: 4px;
-    padding-left: 12px;
-    position: relative;
-  }
-  
-  .card li:before {
-    content: "·";
-    position: absolute;
-    left: 0;
-  }
-  
-  /* Scale bar */
-  .scale {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-family: var(--meta);
-    font-size: 10px;
-    margin-top: 20px;
-  }
-  
-  .scale .bar {
-    width: 60px;
-    height: 1px;
-    background: var(--ink);
-  }
-  
-  /* Contents/navigation */
-  .contents {
-    font-family: var(--body);
-    font-size: 14px;
-    line-height: 2;
-    margin: 120px auto;
-    max-width: 600px;
-    text-align: center;
-  }
-  
-  /* Cover/intro sections */
-  .cover {
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  /* Site header */
-  .site-header {
-    text-align: center;
-    padding: 80px 40px;
-  }
-  
-  .site-header h1 {
-    font-family: var(--display);
-    font-size: clamp(48px, 6vw, 80px);
-    margin-bottom: 20px;
-  }
-  
-  .subtitle {
-    font-family: var(--meta);
-    font-size: 11px;
-    color: var(--gray);
-    letter-spacing: 0.1em;
-  }
-  
-  /* Hero bleed image */
-  .hero-bleed {
-    width: 100%;
-    margin-bottom: 80px;
-  }
-  
-  .hero-bleed img {
-    width: 100%;
-    height: auto;
-  }
-  
-  /* Colophon */
-  .colophon {
-    margin-top: 200px;
-    padding: 80px 40px;
-    text-align: center;
-    font-family: var(--display);
-    font-size: 32px;
-    font-style: italic;
-  }
-  
-  /* End artwork */
-  .end-art {
-    margin: 120px auto;
-    max-width: 800px;
-  }
-  
-  .end-figure img {
-    width: 100%;
-    height: auto;
-  }
-  
-  /* Footer */
-  .footer {
-    padding: 40px;
-    text-align: center;
-    font-family: var(--meta);
-    font-size: 10px;
-    color: var(--gray);
-    margin-bottom: 80px;
-  }
-  
-  /* Dotted circle motif - for portal elements */
-  .portal-dots {
-    display: inline-block;
-    width: 200px;
-    height: 200px;
-    border: 2px dotted var(--ink);
-    border-radius: 50%;
-    margin: 40px auto;
-  }
-  
-  /* Accessibility */
-  .skip-link {
-    position: absolute;
-    left: -10000px;
-    width: 1px;
-    height: 1px;
-    overflow: hidden;
-  }
-  
-  .skip-link:focus {
-    position: static;
-    width: auto;
-    height: auto;
-  }
-  
-  .visually-hidden {
-    position: absolute;
-    left: -10000px;
-    width: 1px;
-    height: 1px;
-    overflow: hidden;
-  }
-  
-  /* Footnote superscripts */
-  sup {
-    font-size: 0.7em;
-    vertical-align: super;
-    line-height: 0;
-  }
-  
-  /* Responsive adjustments */
-  @media (max-width: 768px) {
-    .container {
-      margin-top: 100px;
-    }
-    
-    .casestudy {
-      margin-top: 120px;
-    }
-    
-    .width75,
-    .width25 {
-      width: 100%;
-      padding: 0;
-    }
-    
-    .width25 {
-      margin-top: 40px;
-    }
-    
-    .title {
-      font-size: 48px;
-      margin-bottom: 30px;
-    }
-    
-    .quote {
-      margin: 100px auto;
-    }
-    
-    .quote-text {
-      font-size: 32px;
-    }
-  }
-  
-  /* Print styles */
-  @media print {
-    body {
-      font-size: 11pt;
-    }
-    
-    .casestudy {
-      page-break-before: always;
-    }
-  }
+/* ===== RESET ===== */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
+/* ===== DESIGN TOKENS ===== */
+:root {
+  /* Typography */
+  --display: "antiquarian-scribe", Georgia, serif;
+  --body: "Source Serif 4", Georgia, serif;
+  --meta: "Courier New", Courier, monospace;
 
-  body {
-    margin: 0;
-    background: #f8f4ea url(backgroundpageweb.png) no-repeat center center fixed;
-    background-size: cover;
-  }
+  /* Colors from README.md */
+  --accent: #C09C59;        /* ochre */
+  --ink: #222222;           /* graphite text */
+  --rule: #CFCFCF;          /* faint graphite rule */
+  --paper: #FAFAF7;         /* paper background */
+  --gray: #666666;          /* secondary text */
+}
 
-  /* more air between case studies */
-.casestudy { margin-top: 280px; }
-.casestudy + .casestudy { margin-top: 340px; } /* extra gap after each */
-.title { margin-bottom: 70px; }                /* space under the section title */
+/* ===== BASE STYLES ===== */
+html {
+  height: 100%;
+  margin: 0;
+}
 
-/* looser contents list */
-.contents { line-height: 2.8; }  /* bump up from ~2 */
+body {
+  font-family: var(--body);
+  color: var(--ink);
+  line-height: 1.65;
+  font-size: 16px;
+  min-height: 100%;
+  margin: 0;
 
-.big-title {
-    font-family: var(--display);
-    font-style: italic;
-    font-weight: 400;
-    letter-spacing: .01em;
-    line-height: .95;
-    font-size: clamp(56px, 9.5vw, 140px);
-    text-align: center;
-    margin: 12vh auto 8vh;
-    color: #111;
-    text-shadow: 0 0 12px rgba(255,255,255,.6);
-  }
-  .big-title .break { display:block; margin-top:.1em; }
-
-  /* Big title fills ~75% of viewport width */
-.site-header{
-    display:flex;
-    justify-content:center;
-    padding: 10vh 0 6vh;
-  }
-  
-  .big-title{
-    font-family: var(--display);
-    font-style: italic;
-    font-weight: 400;
-    line-height: .88;
-    letter-spacing: .01em;
-  
-    /* key bits */
-    max-width: 75vw;           /* target width */
-    font-size: clamp(96px, 16vw, 280px); /* scales up with screen */
-    text-align: center;
-  
-    color:#111;
-    text-shadow: 0 0 12px rgba(255,255,255,.6);
-  }
-  .big-title .break{ display:block; margin-top:.06em; }
-  
-  @media (max-width: 768px){
-    .big-title{ max-width: 92vw; font-size: clamp(56px, 12vw, 120px); }
-  }
-
-  /* Full-bleed repeating linen/paper texture */
-html, body { margin:0; min-height:100%; }
-
-body{
-  background: #f8f4ea url(backgroundpageweb.png) repeat top center fixed;
-  /* tune the tile size until it looks right: try 320–520px */
+  /* Single background declaration with texture */
+  background-color: var(--paper);
+  background-image: url("backgroundpageweb copy.png");
+  background-repeat: repeat;
+  background-position: top center;
   background-size: 420px auto;
+  background-attachment: fixed;
 }
 
-/* Full-bleed, non-repeating background */
-html, body { height: 100%; margin: 0; }
-
-body{
-  background-image: url("./backgroundpageweb.png");
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: cover;        /* fills the screen without tiling */
-  background-attachment: fixed;  /* remove this on mobile if it feels jumpy */
+/* Ensure transparent overlays don't hide background */
+main, .page, .container {
+  background: transparent;
 }
 
-/* Make sure nothing paints over it */
-main, .page, .container { background: transparent; }
-/* Zoom to crop edges */
-body{ background-size: 115% auto; }  /* try 110–130% */
-
-/* ===== Full-screen image break / interlude ===== */
-.break-full {
-    position: relative;
-    width: 100%;
-    min-height: 100vh;                 /* fill the viewport */
-    background: url("./BREAKIMAGE.png") no-repeat center center;
-    background-size: cover;            /* full-bleed, no tiling */
-    overflow: clip;                    /* hide overlays that spill off edges */
-  }
-  
-  /* optional parallax (desktop only; mobile can be janky) */
-  @media (hover:hover) and (pointer:fine) {
-    .break-full.parallax { background-attachment: fixed; }
-  }
-  
-  /* optional subtle vignette to help foreground elements read */
-  .break-full::after {
-    content: "";
-    position: absolute; inset: 0;
-    background: radial-gradient(120% 70% at 50% 50%, transparent 60%, rgba(0,0,0,.10));
-    pointer-events: none;
-  }
-  
-  /* optional overlaid title on top of the break */
-  .break-title {
-    position: absolute;
-    left: 50%; bottom: 8vh; transform: translateX(-50%);
-    font-family: var(--display);
-    font-style: italic;
-    font-weight: 400;
-    line-height: .9;
-    text-align: center;
-    font-size: clamp(48px, 7vw, 140px);
-    color: #111;
-    text-shadow:
-      0 0 14px rgba(255,255,255,.85),
-      0 2px 40px rgba(255,255,255,.55);
-  }
-  
-  /* optional decorative overlays using your PNGs */
-  .break-dot {
-    position: absolute;
-    right: 3vw;
-    bottom: 4vh;
-    width: min(44vw, 560px);   /* scales but caps */
-    height: auto;
-    pointer-events: none;
-  }
-  
-  .break-icon {
-    position: absolute;
-    right: 6vw;
-    bottom: 16vh;
-    width: clamp(56px, 9vw, 120px);
-    height: auto;
-    pointer-events: none;
-  }
-
-  /* Bigger gap after every case */
-.casestudy { margin-bottom: 280px; }      /* add space after the whole case */
-
-/* Extra air *only* before the next case (stacked cases) */
-.casestudy + .casestudy { margin-top: 420px; }
-
-/* If you’re using the full-screen break section */
-.break-full { margin-top: clamp(140px, 12vh, 260px); }
-
-/* If the last figure in a case feels tight, bump its bottom margin */
-.width75 figure { margin-bottom: 60px; }
-
-/* Tighter quote without clamp */
-.quote-text{
-  /* pick a fixed size you like */
-  font-size: 76px;           /* change to any px you want */
-  line-height: .86;          /* pull lines closer (try .84–.90) */
-  margin: 70px auto 40px;    /* less air above/below if needed */
+/* ===== TYPOGRAPHY ===== */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--display);
+  font-weight: 400;
+  line-height: 1.1;
 }
 
-/* If you’re using the “tape strip” spans, trim their extra padding */
-.quote-text .strip,
-.quote-text.stepped span{
-  padding-top: .02em;
-  padding-bottom: .02em;     /* was adding vertical space */
+p {
+  margin-bottom: 1em;
 }
 
-/* Optional: if you still want it tighter */
-@media (min-width: 900px){
-  .quote-text{ line-height: .84; }
+sup {
+  font-size: 0.7em;
+  vertical-align: super;
+  line-height: 0;
 }
 
-/* tighten the intro quote */
-.quote-text{
-  line-height: 0.9 !important;
-}
-
-
-/* === Big title: fixed to ~75% page width, no clamp === */
+/* ===== HEADER & TITLE ===== */
 .site-header {
   display: flex;
   justify-content: center;
-  padding: 10vh 0 6vh;
+  align-items: center;
+  padding: 10vh 5vw 6vh;
+  text-align: center;
 }
 
-.site-header .big-title {
-  width: 75vw;          /* use width, not max-width */
-  max-width: none;      /* ignore earlier max-width */
-  margin: 0 auto;
-  text-align: center;
-
+.big-title {
   font-family: var(--display);
   font-style: italic;
   font-weight: 400;
-  line-height: .9;
-  letter-spacing: .01em;
-
-  /* no clamp — scale with viewport only */
-  font-size: 12vw !important;  /* tweak 10–14vw to taste */
-  color: #111;
-  text-shadow: 0 0 12px rgba(255,255,255,.6);
+  line-height: 0.9;
+  letter-spacing: 0.01em;
+  width: 75vw;
+  max-width: 1200px;
+  font-size: 12vw;
+  color: var(--ink);
+  text-shadow: 0 0 12px rgba(255, 255, 255, 0.6);
 }
 
-.big-title .break { display:block; margin-top:.06em; }
+.big-title .break {
+  display: block;
+  margin-top: 0.06em;
+}
+
+/* ===== HERO IMAGE ===== */
+.hero-bleed {
+  width: 100%;
+  margin-bottom: 80px;
+}
+
+.hero-bleed figure {
+  margin: 0;
+}
+
+.hero-bleed img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ===== QUOTE SECTIONS ===== */
+.quote {
+  margin: 180px auto;
+  max-width: 1000px;
+  padding: 0 40px;
+  text-align: center;
+}
+
+.quote-text {
+  font-family: var(--display);
+  font-style: italic;
+  font-weight: 400;
+  font-size: 76px;
+  line-height: 0.9;
+  color: var(--ink);
+  margin: 70px auto 40px;
+}
+
+.quote img {
+  max-width: 100%;
+  height: auto;
+  margin: 40px 0;
+}
+
+/* ===== CONTENTS ===== */
+.contents {
+  font-family: var(--body);
+  font-size: 16px;
+  line-height: 2.8;
+  margin: 120px auto;
+  max-width: 600px;
+  padding: 0 40px;
+  text-align: center;
+}
+
+.contents strong {
+  font-weight: 600;
+  letter-spacing: 0.05em;
+}
+
+/* ===== MARGINALIA ===== */
+.marginalia {
+  font-family: var(--display);
+  font-size: 28px;
+  font-style: italic;
+  text-align: center;
+  margin: 120px auto;
+  max-width: 600px;
+  padding: 0 40px;
+  color: var(--gray);
+  letter-spacing: 0.05em;
+}
+
+/* ===== CASE STUDY LAYOUTS ===== */
+.container {
+  max-width: 1400px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 40px;
+}
+
+.casestudy {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 280px;
+  margin-bottom: 280px;
+}
+
+.casestudy + .casestudy {
+  margin-top: 420px;
+}
+
+/* Width classes for asymmetric grid */
+.width100 {
+  width: 100%;
+}
+
+.width75 {
+  width: 72%;
+  padding-right: 3%;
+}
+
+.width25 {
+  width: 28%;
+  padding-left: 2%;
+}
+
+/* ===== SECTION TITLES ===== */
+.title {
+  font-family: var(--display);
+  font-size: clamp(60px, 8vw, 100px);
+  font-weight: 400;
+  line-height: 1.1;
+  margin-bottom: 70px;
+  letter-spacing: 0.02em;
+  color: var(--ink);
+}
+
+.title img {
+  height: 80px;
+  width: auto;
+  vertical-align: middle;
+  margin-right: 20px;
+}
+
+/* ===== IMAGES & FIGURES ===== */
+.width75 figure {
+  width: 100%;
+  margin-bottom: 60px;
+}
+
+.width75 img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+figcaption {
+  margin-top: 12px;
+  font-family: var(--meta);
+  font-size: 11px;
+  line-height: 1.5;
+  color: var(--gray);
+}
+
+.fig-number {
+  font-weight: bold;
+  color: var(--ink);
+}
+
+/* ===== BODY TEXT ===== */
+.text {
+  font-family: var(--body);
+  font-size: 15px;
+  line-height: 1.7;
+  font-style: italic;
+}
+
+.text p {
+  margin-bottom: 20px;
+  text-align: justify;
+}
+
+/* ===== NOTES / METADATA ===== */
+.notes {
+  margin-top: 40px;
+  padding-top: 20px;
+  border-top: 1px solid var(--rule);
+  font-family: var(--meta);
+  font-size: 10px;
+  line-height: 1.6;
+  color: var(--gray);
+}
+
+.notes h4 {
+  font-family: var(--meta);
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-top: 16px;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.notes h4:first-child {
+  margin-top: 0;
+}
+
+/* ===== FULL-SCREEN BREAK INTERLUDE ===== */
+.break-full {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  background-image: url("BREAKIMAGE copy.png");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  overflow: clip;
+  margin-top: clamp(140px, 12vh, 260px);
+  margin-bottom: clamp(140px, 12vh, 260px);
+}
+
+/* Parallax on desktop only */
+@media (hover: hover) and (pointer: fine) {
+  .break-full.parallax {
+    background-attachment: fixed;
+  }
+}
+
+/* Subtle vignette */
+.break-full::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    120% 70% at 50% 50%,
+    transparent 60%,
+    rgba(0, 0, 0, 0.1)
+  );
+  pointer-events: none;
+}
+
+.break-title {
+  position: absolute;
+  left: 50%;
+  bottom: 8vh;
+  transform: translateX(-50%);
+  font-family: var(--display);
+  font-style: italic;
+  font-weight: 400;
+  line-height: 0.9;
+  text-align: center;
+  font-size: clamp(48px, 7vw, 140px);
+  color: var(--ink);
+  text-shadow: 0 0 14px rgba(255, 255, 255, 0.85),
+    0 2px 40px rgba(255, 255, 255, 0.55);
+}
+
+.break-dot {
+  position: absolute;
+  right: 3vw;
+  bottom: 4vh;
+  width: min(44vw, 560px);
+  height: auto;
+  pointer-events: none;
+}
+
+.break-icon {
+  position: absolute;
+  right: 6vw;
+  bottom: 16vh;
+  width: clamp(56px, 9vw, 120px);
+  height: auto;
+  pointer-events: none;
+}
+
+/* ===== COLOPHON ===== */
+.colophon {
+  margin-top: 200px;
+  padding: 80px 40px;
+  text-align: center;
+  font-family: var(--display);
+  font-size: 32px;
+  font-style: italic;
+  color: var(--ink);
+}
+
+/* ===== FOOTER ===== */
+.footer {
+  padding: 40px;
+  text-align: center;
+  font-family: var(--meta);
+  font-size: 10px;
+  color: var(--gray);
+  margin-bottom: 80px;
+}
+
+/* ===== RESPONSIVE: TABLET & BELOW (≤900px) ===== */
+@media (max-width: 900px) {
+  .container {
+    padding: 0 30px;
+  }
+
+  .casestudy {
+    margin-top: 180px;
+    margin-bottom: 180px;
+  }
+
+  .casestudy + .casestudy {
+    margin-top: 220px;
+  }
+
+  .width75,
+  .width25 {
+    width: 100%;
+    padding: 0;
+  }
+
+  .width25 {
+    margin-top: 40px;
+  }
+
+  .title {
+    font-size: clamp(48px, 10vw, 80px);
+    margin-bottom: 40px;
+  }
+
+  .quote {
+    margin: 120px auto;
+    padding: 0 30px;
+  }
+
+  .quote-text {
+    font-size: 48px;
+  }
+
+  .big-title {
+    width: 85vw;
+    font-size: 14vw;
+  }
+
+  .marginalia {
+    font-size: 24px;
+    margin: 100px auto;
+  }
+}
+
+/* ===== RESPONSIVE: MOBILE (≤600px) ===== */
+@media (max-width: 600px) {
+  body {
+    font-size: 15px;
+    background-size: 300px auto;
+  }
+
+  .site-header {
+    padding: 8vh 5vw 4vh;
+  }
+
+  .big-title {
+    width: 90vw;
+    font-size: 16vw;
+  }
+
+  .hero-bleed {
+    margin-bottom: 60px;
+  }
+
+  .container {
+    padding: 0 20px;
+  }
+
+  .casestudy {
+    margin-top: 120px;
+    margin-bottom: 120px;
+  }
+
+  .casestudy + .casestudy {
+    margin-top: 160px;
+  }
+
+  .title {
+    font-size: 42px;
+    margin-bottom: 30px;
+  }
+
+  .text {
+    font-size: 14px;
+    line-height: 1.65;
+  }
+
+  .quote {
+    margin: 80px auto;
+    padding: 0 20px;
+  }
+
+  .quote-text {
+    font-size: 36px;
+    line-height: 1;
+  }
+
+  .contents {
+    margin: 80px auto;
+    padding: 0 20px;
+    font-size: 15px;
+    line-height: 2.4;
+  }
+
+  .marginalia {
+    font-size: 20px;
+    margin: 80px auto;
+  }
+
+  .colophon {
+    font-size: 24px;
+    margin-top: 120px;
+    padding: 60px 20px;
+  }
+
+  .break-full {
+    min-height: 60vh;
+    margin-top: 80px;
+    margin-bottom: 80px;
+  }
+
+  /* Great Blue Hole: stack columns on mobile */
+  .casestudy[style*="max-width: 1600px"] > div[style*="grid-template-columns"] {
+    display: block !important;
+  }
+
+  .casestudy[style*="max-width: 1600px"] > div[style*="grid-template-columns"] > div {
+    margin-bottom: 40px;
+  }
+}
+
+/* ===== ACCESSIBILITY ===== */
+.skip-link {
+  position: absolute;
+  left: -10000px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.skip-link:focus {
+  position: static;
+  width: auto;
+  height: auto;
+}
+
+.visually-hidden {
+  position: absolute;
+  left: -10000px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+/* ===== PRINT STYLES ===== */
+@media print {
+  body {
+    font-size: 11pt;
+    background: white;
+  }
+
+  .casestudy {
+    page-break-before: always;
+  }
+
+  .break-full {
+    page-break-before: always;
+    page-break-after: always;
+  }
+}
