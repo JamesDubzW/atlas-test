@@ -1,437 +1,597 @@
-/* ===== Atlas of Honest Entrances - Look & Feel ===== */
-/* Calm, editorial, museum-quality atlas styling */
+/* ===== Atlas of Honest Entrances - Refined CSS ===== */
 
 /* Reset */
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Typography Variables */
+  :root {
+    --display: "antiquarian-scribe", serif;
+    --body: "Source Serif 4", Georgia, serif;
+    --meta: "Courier New", monospace;
+    
+    /* Colors - clean, no parchment */
+    --ink: #1a1a1a;
+    --paper: #fdfcfa;
+    --gray: #666;
+    --accent: #8b4513;
+  }
+  
+  /* Base */
+  body {
+    font-family: var(--body);
+    color: var(--ink);
+    background: var(--paper);
+    line-height: 1.6;
+    font-size: 16px;
+  }
+  
+  /* Container layouts */
+  .container {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 200px;
+    max-width: 1400px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 40px;
+  }
+  
+  .casestudy {
+    margin-top: 250px;
+  }
+  
+  /* Width classes for asymmetric layout */
+  .width100 {
+    width: 100%;
+  }
+  
+  .width75 {
+    width: 72%;
+    padding-right: 3%;
+  }
+  
+  .width25 {
+    width: 28%;
+    padding-left: 2%;
+  }
+  
+  /* Large Script Titles - Your signature element */
+  .title {
+    font-family: var(--display);
+    font-size: 80px;
+    font-weight: 400;
+    line-height: 1.1;
+    margin-bottom: 60px;
+    letter-spacing: 0.02em;
+  }
+  
+  .title img {
+    height: 80px;
+    width: auto;
+    vertical-align: middle;
+    margin-right: 20px;
+  }
+  
+  /* Main body text */
+  .text {
+    font-family: var(--body);
+    font-size: 15px;
+    line-height: 1.7;
+    font-style: italic;
+  }
+  
+  .text p {
+    margin-bottom: 20px;
+    text-align: justify;
+  }
+  
+  /* Hero images with captions */
+  .width75 figure {
+    width: 100%;
+    margin-bottom: 30px;
+  }
+  
+  .width75 img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  
+  /* Figure captions - adding authority */
+  figcaption {
+    margin-top: 12px;
+    font-family: var(--meta);
+    font-size: 11px;
+    line-height: 1.4;
+    color: var(--gray);
+  }
+  
+  .fig-number {
+    font-weight: bold;
+  }
+  
+  /* Notes/Metadata section */
+  .notes {
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(0,0,0,0.1);
+    font-family: var(--meta);
+    font-size: 10px;
+    line-height: 1.5;
+    color: var(--gray);
+  }
+  
+  .notes h4 {
+    font-size: 9px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 8px;
+    font-weight: normal;
+  }
+  
+  /* Quote sections - large script */
+  .quote {
+    margin: 200px auto;
+    max-width: 1000px;
+    padding: 0 40px;
+    text-align: center;
+  }
+  
+  .quote-text {
+    font-family: var(--display);
+    font-size: 58px;
+    line-height: 1.2;
+    font-style: italic;
+  }
+  
+  .quote img {
+    max-width: 100%;
+    height: auto;
+    margin: 40px 0;
+  }
+  
+  /* Marginalia - your poetic asides */
+  .marginalia {
+    font-family: var(--display);
+    font-size: 24px;
+    font-style: italic;
+    text-align: center;
+    margin: 80px auto;
+    max-width: 600px;
+    color: var(--gray);
+    letter-spacing: 0.05em;
+  }
+  
+  /* Metadata cards for Son Doong section */
+  .meta {
+    margin-top: 30px;
+  }
+  
+  .card {
+    background: rgba(255,255,255,0.5);
+    border: 1px solid rgba(0,0,0,0.08);
+    padding: 15px;
+    margin-bottom: 15px;
+    font-family: var(--meta);
+    font-size: 10px;
+  }
+  
+  .card h3 {
+    font-size: 9px;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    margin-bottom: 8px;
+    font-weight: normal;
+  }
+  
+  .card p, .card li {
+    line-height: 1.5;
+    color: var(--gray);
+  }
+  
+  .card ul {
+    list-style: none;
+    padding-left: 0;
+  }
+  
+  .card li {
+    margin-bottom: 4px;
+    padding-left: 12px;
+    position: relative;
+  }
+  
+  .card li:before {
+    content: "·";
+    position: absolute;
+    left: 0;
+  }
+  
+  /* Scale bar */
+  .scale {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: var(--meta);
+    font-size: 10px;
+    margin-top: 20px;
+  }
+  
+  .scale .bar {
+    width: 60px;
+    height: 1px;
+    background: var(--ink);
+  }
+  
+  /* Contents/navigation */
+  .contents {
+    font-family: var(--body);
+    font-size: 14px;
+    line-height: 2;
+    margin: 120px auto;
+    max-width: 600px;
+    text-align: center;
+  }
+  
+  /* Cover/intro sections */
+  .cover {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  /* Site header */
+  .site-header {
+    text-align: center;
+    padding: 80px 40px;
+  }
+  
+  .site-header h1 {
+    font-family: var(--display);
+    font-size: 70px;
+    margin-bottom: 20px;
+  }
+  
+  .subtitle {
+    font-family: var(--meta);
+    font-size: 11px;
+    color: var(--gray);
+    letter-spacing: 0.1em;
+  }
+  
+  /* Hero bleed image */
+  .hero-bleed {
+    width: 100%;
+    margin-bottom: 80px;
+  }
+  
+  .hero-bleed img {
+    width: 100%;
+    height: auto;
+  }
+  
+  /* Colophon */
+  .colophon {
+    margin-top: 200px;
+    padding: 80px 40px;
+    text-align: center;
+    font-family: var(--display);
+    font-size: 32px;
+    font-style: italic;
+  }
+  
+  /* End artwork */
+  .end-art {
+    margin: 120px auto;
+    max-width: 800px;
+  }
+  
+  .end-figure img {
+    width: 100%;
+    height: auto;
+  }
+  
+  /* Footer */
+  .footer {
+    padding: 40px;
+    text-align: center;
+    font-family: var(--meta);
+    font-size: 10px;
+    color: var(--gray);
+    margin-bottom: 80px;
+  }
+  
+  /* Dotted circle motif - for portal elements */
+  .portal-dots {
+    display: inline-block;
+    width: 200px;
+    height: 200px;
+    border: 2px dotted var(--ink);
+    border-radius: 50%;
+    margin: 40px auto;
+  }
+  
+  /* Accessibility */
+  .skip-link {
+    position: absolute;
+    left: -10000px;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+  }
+  
+  .skip-link:focus {
+    position: static;
+    width: auto;
+    height: auto;
+  }
+  
+  .visually-hidden {
+    position: absolute;
+    left: -10000px;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+  }
+  
+  /* Footnote superscripts */
+  sup {
+    font-size: 0.7em;
+    vertical-align: super;
+    line-height: 0;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .container {
+      margin-top: 100px;
+    }
+    
+    .casestudy {
+      margin-top: 120px;
+    }
+    
+    .width75,
+    .width25 {
+      width: 100%;
+      padding: 0;
+    }
+    
+    .width25 {
+      margin-top: 40px;
+    }
+    
+    .title {
+      font-size: 48px;
+      margin-bottom: 30px;
+    }
+    
+    .quote {
+      margin: 100px auto;
+    }
+    
+    .quote-text {
+      font-size: 32px;
+    }
+  }
+  
+  /* Print styles */
+  @media print {
+    body {
+      font-size: 11pt;
+    }
+    
+    .casestudy {
+      page-break-before: always;
+    }
+  }
+
+
+  body {
+    margin: 0;
+    background: #f8f4ea url(backgroundpageweb.png) no-repeat center center fixed;
+    background-size: cover;
+  }
+
+  /* more air between case studies */
+.casestudy { margin-top: 280px; }
+.casestudy + .casestudy { margin-top: 340px; } /* extra gap after each */
+.title { margin-bottom: 70px; }                /* space under the section title */
+
+/* looser contents list */
+.contents { line-height: 2.8; }  /* bump up from ~2 */
+
+.big-title {
+    font-family: var(--display);
+    font-style: italic;
+    font-weight: 400;
+    letter-spacing: .01em;
+    line-height: .95;
+    font-size: 110px;
+    text-align: center;
+    margin: 12vh auto 8vh;
+    color: #111;
+    text-shadow: 0 0 12px rgba(255,255,255,.6);
+  }
+  .big-title .break { display:block; margin-top:.1em; }
+
+  /* Big title fills ~75% of viewport width */
+.site-header{
+    display:flex;
+    justify-content:center;
+    padding: 10vh 0 6vh;
+  }
+  
+  .big-title{
+    font-family: var(--display);
+    font-style: italic;
+    font-weight: 400;
+    line-height: .88;
+    letter-spacing: .01em;
+  
+    /* key bits */
+    max-width: 75vw;           /* target width */
+    font-size: 200px;
+    text-align: center;
+  
+    color:#111;
+    text-shadow: 0 0 12px rgba(255,255,255,.6);
+  }
+  .big-title .break{ display:block; margin-top:.06em; }
+  
+  @media (max-width: 768px){
+    .big-title{ max-width: 92vw; font-size: 90px; }
+  }
+
+  /* Full-bleed repeating linen/paper texture */
+html, body { margin:0; min-height:100%; }
+
+body{
+  background: #f8f4ea url(backgroundpageweb.png) repeat top center fixed;
+  /* tune the tile size until it looks right: try 320–520px */
+  background-size: 420px auto;
 }
 
-/* Typography & Color Variables */
-:root {
-  /* Fonts */
-  --display: "antiquarian-scribe", serif;
-  --body: "Source Serif 4", Georgia, serif;
-  --meta: "Source Serif 4", Georgia, serif;
+/* Full-bleed, non-repeating background */
+html, body { height: 100%; margin: 0; }
 
-  /* Color palette per spec */
-  --ink: #222222;              /* graphite text */
-  --paper: #FAFAF7;            /* warm paper background */
-  --ochre: #C09C59;            /* accent color */
-  --rule: #CFCFCF;             /* faint graphite dividers */
-  --gray: #666666;             /* secondary text */
-}
-
-/* Base Typography */
-body {
-  font-family: var(--body);
-  color: var(--ink);
-  background: var(--paper);
-  line-height: 1.7;
-  font-size: 16px;
-  margin: 0;
-  /* Optional: add texture overlay */
+body{
   background-image: url("./backgroundpageweb.png");
   background-repeat: no-repeat;
   background-position: center center;
-  background-size: cover;
-  background-attachment: fixed;
+  background-size: cover;        /* fills the screen without tiling */
+  background-attachment: fixed;  /* remove this on mobile if it feels jumpy */
 }
 
-/* Make content transparent to show background */
-main, .page, .container {
-  background: transparent;
+/* Make sure nothing paints over it */
+main, .page, .container { background: transparent; }
+/* Zoom to crop edges */
+body{ background-size: 115% auto; }  /* try 110–130% */
+
+/* ===== Full-screen image break / interlude ===== */
+.break-full {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;                 /* fill the viewport */
+    background: url("./BREAKIMAGE.png") no-repeat center center;
+    background-size: cover;            /* full-bleed, no tiling */
+    overflow: clip;                    /* hide overlays that spill off edges */
+  }
+  
+  /* optional parallax (desktop only; mobile can be janky) */
+  @media (hover:hover) and (pointer:fine) {
+    .break-full.parallax { background-attachment: fixed; }
+  }
+  
+  /* optional subtle vignette to help foreground elements read */
+  .break-full::after {
+    content: "";
+    position: absolute; inset: 0;
+    background: radial-gradient(120% 70% at 50% 50%, transparent 60%, rgba(0,0,0,.10));
+    pointer-events: none;
+  }
+  
+  /* optional overlaid title on top of the break */
+  .break-title {
+    position: absolute;
+    left: 50%; bottom: 8vh; transform: translateX(-50%);
+    font-family: var(--display);
+    font-style: italic;
+    font-weight: 400;
+    line-height: .9;
+    text-align: center;
+    font-size: 100px;
+    color: #111;
+    text-shadow:
+      0 0 14px rgba(255,255,255,.85),
+      0 2px 40px rgba(255,255,255,.55);
+  }
+  
+  /* optional decorative overlays using your PNGs */
+  .break-dot {
+    position: absolute;
+    right: 3vw;
+    bottom: 4vh;
+    width: 500px;
+    max-width: 44vw;
+    height: auto;
+    pointer-events: none;
+  }
+  
+  .break-icon {
+    position: absolute;
+    right: 6vw;
+    bottom: 16vh;
+    width: 100px;
+    height: auto;
+    pointer-events: none;
+  }
+
+  /* Bigger gap after every case */
+.casestudy { margin-bottom: 280px; }      /* add space after the whole case */
+
+/* Extra air *only* before the next case (stacked cases) */
+.casestudy + .casestudy { margin-top: 420px; }
+
+/* If you're using the full-screen break section */
+.break-full { margin-top: 200px; }
+
+/* If the last figure in a case feels tight, bump its bottom margin */
+.width75 figure { margin-bottom: 60px; }
+
+/* Tighter quote without clamp */
+.quote-text{
+  /* pick a fixed size you like */
+  font-size: 76px;           /* change to any px you want */
+  line-height: .86;          /* pull lines closer (try .84–.90) */
+  margin: 70px auto 40px;    /* less air above/below if needed */
 }
 
-/* ===== SITE HEADER ===== */
+/* If you're using the "tape strip" spans, trim their extra padding */
+.quote-text .strip,
+.quote-text.stepped span{
+  padding-top: .02em;
+  padding-bottom: .02em;     /* was adding vertical space */
+}
+
+/* Optional: if you still want it tighter */
+@media (min-width: 900px){
+  .quote-text{ line-height: .84; }
+}
+
+/* tighten the intro quote */
+.quote-text{
+  line-height: 0.9 !important;
+}
+
+
+/* === Big title: fixed to ~75% page width, no clamp === */
 .site-header {
   display: flex;
   justify-content: center;
   padding: 10vh 0 6vh;
-  text-align: center;
 }
 
-.big-title {
-  width: 75vw;
+.site-header .big-title {
+  width: 75vw;          /* use width, not max-width */
+  max-width: none;      /* ignore earlier max-width */
   margin: 0 auto;
+  text-align: center;
+
   font-family: var(--display);
   font-style: italic;
   font-weight: 400;
-  line-height: 0.9;
-  letter-spacing: 0.01em;
-  font-size: 12vw;
-  color: var(--ink);
-  text-shadow: 0 0 12px rgba(255,255,255,0.6);
+  line-height: .9;
+  letter-spacing: .01em;
+
+  /* no clamp — scale with viewport only */
+  font-size: 12vw !important;  /* tweak 10–14vw to taste */
+  color: #111;
+  text-shadow: 0 0 12px rgba(255,255,255,.6);
 }
 
-.big-title .break {
-  display: block;
-  margin-top: 0.06em;
-}
-
-/* ===== HERO IMAGE ===== */
-.hero-bleed {
-  width: 100%;
-  margin-bottom: 80px;
-}
-
-.hero-bleed img {
-  width: 100%;
-  height: auto;
-  display: block;
-}
-
-/* ===== QUOTE SECTIONS ===== */
-.quote {
-  margin: 200px auto;
-  max-width: 1000px;
-  padding: 0 40px;
-  text-align: center;
-}
-
-.quote-text {
-  font-family: var(--display);
-  font-style: italic;
-  font-size: 76px;
-  line-height: 0.9;
-  margin: 70px auto 40px;
-  color: var(--ink);
-}
-
-.quote img {
-  max-width: 100%;
-  height: auto;
-  margin: 40px 0;
-}
-
-/* ===== CONTENTS ===== */
-.contents {
-  font-family: var(--body);
-  font-size: 14px;
-  line-height: 2.8;
-  margin: 120px auto;
-  max-width: 600px;
-  text-align: center;
-  color: var(--ink);
-}
-
-.contents strong {
-  font-variant: small-caps;
-  font-weight: 600;
-  letter-spacing: 0.1em;
-}
-
-/* ===== CONTAINER LAYOUTS ===== */
-.container {
-  display: flex;
-  flex-wrap: wrap;
-  margin-top: 200px;
-  max-width: 1400px;
-  margin-left: auto;
-  margin-right: auto;
-  padding: 0 80px;
-}
-
-.casestudy {
-  margin-top: 280px;
-  margin-bottom: 280px;
-  border-top: 1px solid var(--rule);
-  padding-top: 80px;
-}
-
-.casestudy + .casestudy {
-  margin-top: 420px;
-}
-
-/* Width classes for asymmetric layout (75/25 split) */
-.width100 {
-  width: 100%;
-}
-
-.width75 {
-  width: 72%;
-  padding-right: 3%;
-}
-
-.width25 {
-  width: 28%;
-  padding-left: 2%;
-}
-
-/* ===== PLATE TITLES ===== */
-.title {
-  font-family: var(--display);
-  font-style: italic;
-  font-size: clamp(60px, 8vw, 100px);
-  font-weight: 400;
-  line-height: 1.1;
-  margin-bottom: 70px;
-  letter-spacing: 0.02em;
-  color: var(--ink);
-}
-
-.title span {
-  display: block;
-  font-variant: small-caps;
-  font-size: 0.6em;
-  color: var(--gray);
-  margin-top: 0.3em;
-  letter-spacing: 0.15em;
-}
-
-.title img {
-  height: 80px;
-  width: auto;
-  vertical-align: middle;
-  margin-right: 20px;
-}
-
-/* ===== FIGURES & IMAGES ===== */
-.width75 figure {
-  width: 100%;
-  margin-bottom: 60px;
-}
-
-.width75 img {
-  width: 100%;
-  height: auto;
-  display: block;
-}
-
-/* Figure captions - small-caps for figure numbers */
-figcaption {
-  margin-top: 12px;
-  font-family: var(--body);
-  font-size: 12px;
-  line-height: 1.5;
-  color: var(--gray);
-}
-
-.fig-number {
-  font-variant: small-caps;
-  font-weight: 600;
-  letter-spacing: 0.05em;
-  color: var(--ink);
-}
-
-/* ===== BODY TEXT ===== */
-.text {
-  font-family: var(--body);
-  font-size: 15px;
-  line-height: 1.7;
-  font-style: normal;
-}
-
-.text p {
-  margin-bottom: 20px;
-  text-align: left;
-  hyphens: auto;
-}
-
-/* Superscript footnote markers */
-sup {
-  font-size: 0.7em;
-  vertical-align: super;
-  line-height: 0;
-  color: var(--ochre);
-}
-
-/* ===== METHOD & NOTES SECTIONS ===== */
-.notes {
-  margin-top: 40px;
-  padding-top: 20px;
-  border-top: 1px solid var(--rule);
-  font-family: var(--body);
-  font-size: 11px;
-  line-height: 1.6;
-  color: var(--gray);
-}
-
-.notes h4 {
-  font-size: 10px;
-  font-variant: small-caps;
-  letter-spacing: 0.1em;
-  margin-bottom: 8px;
-  margin-top: 16px;
-  font-weight: 600;
-  color: var(--ink);
-}
-
-.notes h4:first-child {
-  margin-top: 0;
-}
-
-/* ===== MARGINALIA ===== */
-.marginalia {
-  font-family: var(--display);
-  font-size: 24px;
-  font-style: italic;
-  text-align: center;
-  margin: 80px auto;
-  max-width: 600px;
-  color: var(--gray);
-  letter-spacing: 0.05em;
-}
-
-/* ===== PORTAL DOTS MOTIF ===== */
-/* Used for section separators */
-svg circle {
-  fill: var(--ochre);
-}
-
-/* ===== FULL-SCREEN BREAK / INTERLUDE ===== */
-.break-full {
-  position: relative;
-  width: 100%;
-  min-height: 100vh;
-  background: url("./BREAKIMAGE.png") no-repeat center center;
-  background-size: cover;
-  overflow: clip;
-  margin-top: clamp(140px, 12vh, 260px);
-}
-
-@media (hover:hover) and (pointer:fine) {
-  .break-full.parallax {
-    background-attachment: fixed;
-  }
-}
-
-.break-full::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(120% 70% at 50% 50%, transparent 60%, rgba(0,0,0,0.10));
-  pointer-events: none;
-}
-
-.break-title {
-  position: absolute;
-  left: 50%;
-  bottom: 8vh;
-  transform: translateX(-50%);
-  font-family: var(--display);
-  font-style: italic;
-  font-weight: 400;
-  line-height: 0.9;
-  text-align: center;
-  font-size: clamp(48px, 7vw, 140px);
-  color: var(--ink);
-  text-shadow: 0 0 14px rgba(255,255,255,0.85), 0 2px 40px rgba(255,255,255,0.55);
-}
-
-.break-dot {
-  position: absolute;
-  right: 3vw;
-  bottom: 4vh;
-  width: min(44vw, 560px);
-  height: auto;
-  pointer-events: none;
-}
-
-.break-icon {
-  position: absolute;
-  right: 6vw;
-  bottom: 16vh;
-  width: clamp(56px, 9vw, 120px);
-  height: auto;
-  pointer-events: none;
-}
-
-/* ===== COLOPHON ===== */
-.colophon {
-  margin-top: 200px;
-  padding: 80px 40px;
-  text-align: center;
-  font-family: var(--display);
-  font-size: 32px;
-  font-style: italic;
-  color: var(--ink);
-}
-
-/* ===== FOOTER ===== */
-.footer {
-  padding: 40px;
-  text-align: center;
-  font-family: var(--body);
-  font-size: 10px;
-  color: var(--gray);
-  margin-bottom: 80px;
-  border-top: 1px solid var(--rule);
-  margin-top: 80px;
-}
-
-/* ===== LINKS ===== */
-a {
-  color: var(--ink);
-  text-decoration: none;
-  border-bottom: 1px solid transparent;
-  transition: border-color 0.3s ease, color 0.3s ease;
-}
-
-a:hover,
-a:focus {
-  color: var(--ochre);
-  border-bottom-color: var(--ochre);
-}
-
-/* ===== RESPONSIVE ADJUSTMENTS ===== */
-@media (max-width: 768px) {
-  .big-title {
-    width: 92vw;
-    font-size: clamp(56px, 12vw, 120px);
-  }
-
-  .container {
-    margin-top: 100px;
-    padding: 0 40px;
-  }
-
-  .casestudy {
-    margin-top: 120px;
-    margin-bottom: 120px;
-  }
-
-  .casestudy + .casestudy {
-    margin-top: 200px;
-  }
-
-  .width75,
-  .width25 {
-    width: 100%;
-    padding: 0;
-  }
-
-  .width25 {
-    margin-top: 40px;
-  }
-
-  .title {
-    font-size: 48px;
-    margin-bottom: 30px;
-  }
-
-  .quote {
-    margin: 100px auto;
-  }
-
-  .quote-text {
-    font-size: 48px;
-  }
-}
-
-/* ===== PRINT STYLES ===== */
-@media print {
-  body {
-    font-size: 11pt;
-    background: white;
-  }
-
-  .casestudy {
-    page-break-before: always;
-  }
-
-  .big-title {
-    font-size: 48pt;
-  }
-}
+.big-title .break { display:block; margin-top:.06em; }
