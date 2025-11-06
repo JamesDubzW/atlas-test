@@ -1,596 +1,566 @@
-/* ===== Atlas of Honest Entrances - Refined CSS ===== */
+/* ===================================================================
+   ATLAS OF HONEST ENTRANCES — REFINED EDITORIAL DESIGN
 
-/* Reset */
+   Design System:
+   - Clean 10-column grid with consistent margins
+   - Unified type hierarchy (no creative sprawl)
+   - Editorial assets: figure numbers, captions, metadata, footnotes
+   - Contemporary white background (no parchment texture)
+   - Consistent spacing and repeatable components
+   =================================================================== */
+
+/* ===== DESIGN TOKENS ===== */
+:root {
+  /* Typography */
+  --font-display: "antiquarian-scribe", serif;
+  --font-body: "Source Serif 4", Georgia, serif;
+  --font-meta: "Courier New", "Courier", monospace;
+
+  /* Color Palette (from README.md) */
+  --color-ochre: #C09C59;
+  --color-graphite: #222222;
+  --color-rule: #CFCFCF;
+  --color-paper: #FAFAF7;
+  --color-text-secondary: #666666;
+
+  /* 10-Column Grid System */
+  --grid-columns: 10;
+  --grid-gap: 20px;
+  --grid-margin: 60px;
+  --max-width: 1400px;
+
+  /* Type Scale */
+  --type-case-title: 72px;
+  --type-location: 28px;
+  --type-body: 15px;
+  --type-caption: 12px;
+  --type-metadata: 10px;
+  --type-footnote: 11px;
+
+  /* Spacing Scale (8px base) */
+  --space-xs: 8px;
+  --space-sm: 16px;
+  --space-md: 24px;
+  --space-lg: 40px;
+  --space-xl: 60px;
+  --space-xxl: 100px;
+  --space-section: 200px;
+}
+
+/* ===== RESET ===== */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  
-  /* Typography Variables */
-  :root {
-    --display: "antiquarian-scribe", serif;
-    --body: "Source Serif 4", Georgia, serif;
-    --meta: "Courier New", monospace;
-    
-    /* Colors - clean, no parchment */
-    --ink: #1a1a1a;
-    --paper: #fdfcfa;
-    --gray: #666;
-    --accent: #8b4513;
-  }
-  
-  /* Base */
-  body {
-    font-family: var(--body);
-    color: var(--ink);
-    background: var(--paper);
-    line-height: 1.6;
-    font-size: 16px;
-  }
-  
-  /* Container layouts */
-  .container {
-    display: flex;
-    flex-wrap: wrap;
-    margin-top: 200px;
-    max-width: 1400px;
-    margin-left: auto;
-    margin-right: auto;
-    padding: 0 40px;
-  }
-  
-  .casestudy {
-    margin-top: 250px;
-  }
-  
-  /* Width classes for asymmetric layout */
-  .width100 {
-    width: 100%;
-  }
-  
-  .width75 {
-    width: 72%;
-    padding-right: 3%;
-  }
-  
-  .width25 {
-    width: 28%;
-    padding-left: 2%;
-  }
-  
-  /* Large Script Titles - Your signature element */
-  .title {
-    font-family: var(--display);
-    font-size: clamp(60px, 8vw, 100px);
-    font-weight: 400;
-    line-height: 1.1;
-    margin-bottom: 60px;
-    letter-spacing: 0.02em;
-  }
-  
-  .title img {
-    height: 80px;
-    width: auto;
-    vertical-align: middle;
-    margin-right: 20px;
-  }
-  
-  /* Main body text */
-  .text {
-    font-family: var(--body);
-    font-size: 15px;
-    line-height: 1.7;
-    font-style: italic;
-  }
-  
-  .text p {
-    margin-bottom: 20px;
-    text-align: justify;
-  }
-  
-  /* Hero images with captions */
-  .width75 figure {
-    width: 100%;
-    margin-bottom: 30px;
-  }
-  
-  .width75 img {
-    width: 100%;
-    height: auto;
-    display: block;
-  }
-  
-  /* Figure captions - adding authority */
-  figcaption {
-    margin-top: 12px;
-    font-family: var(--meta);
-    font-size: 11px;
-    line-height: 1.4;
-    color: var(--gray);
-  }
-  
-  .fig-number {
-    font-weight: bold;
-  }
-  
-  /* Notes/Metadata section */
-  .notes {
-    margin-top: 40px;
-    padding-top: 20px;
-    border-top: 1px solid rgba(0,0,0,0.1);
-    font-family: var(--meta);
-    font-size: 10px;
-    line-height: 1.5;
-    color: var(--gray);
-  }
-  
-  .notes h4 {
-    font-size: 9px;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    margin-bottom: 8px;
-    font-weight: normal;
-  }
-  
-  /* Quote sections - large script */
-  .quote {
-    margin: 200px auto;
-    max-width: 1000px;
-    padding: 0 40px;
-    text-align: center;
-  }
-  
-  .quote-text {
-    font-family: var(--display);
-    font-size: clamp(40px, 5vw, 70px);
-    line-height: 1.2;
-    font-style: italic;
-  }
-  
-  .quote img {
-    max-width: 100%;
-    height: auto;
-    margin: 40px 0;
-  }
-  
-  /* Marginalia - your poetic asides */
-  .marginalia {
-    font-family: var(--display);
-    font-size: 24px;
-    font-style: italic;
-    text-align: center;
-    margin: 80px auto;
-    max-width: 600px;
-    color: var(--gray);
-    letter-spacing: 0.05em;
-  }
-  
-  /* Metadata cards for Son Doong section */
-  .meta {
-    margin-top: 30px;
-  }
-  
-  .card {
-    background: rgba(255,255,255,0.5);
-    border: 1px solid rgba(0,0,0,0.08);
-    padding: 15px;
-    margin-bottom: 15px;
-    font-family: var(--meta);
-    font-size: 10px;
-  }
-  
-  .card h3 {
-    font-size: 9px;
-    text-transform: uppercase;
-    letter-spacing: 0.15em;
-    margin-bottom: 8px;
-    font-weight: normal;
-  }
-  
-  .card p, .card li {
-    line-height: 1.5;
-    color: var(--gray);
-  }
-  
-  .card ul {
-    list-style: none;
-    padding-left: 0;
-  }
-  
-  .card li {
-    margin-bottom: 4px;
-    padding-left: 12px;
-    position: relative;
-  }
-  
-  .card li:before {
-    content: "·";
-    position: absolute;
-    left: 0;
-  }
-  
-  /* Scale bar */
-  .scale {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-family: var(--meta);
-    font-size: 10px;
-    margin-top: 20px;
-  }
-  
-  .scale .bar {
-    width: 60px;
-    height: 1px;
-    background: var(--ink);
-  }
-  
-  /* Contents/navigation */
-  .contents {
-    font-family: var(--body);
-    font-size: 14px;
-    line-height: 2;
-    margin: 120px auto;
-    max-width: 600px;
-    text-align: center;
-  }
-  
-  /* Cover/intro sections */
-  .cover {
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  /* Site header */
-  .site-header {
-    text-align: center;
-    padding: 80px 40px;
-  }
-  
-  .site-header h1 {
-    font-family: var(--display);
-    font-size: clamp(48px, 6vw, 80px);
-    margin-bottom: 20px;
-  }
-  
-  .subtitle {
-    font-family: var(--meta);
-    font-size: 11px;
-    color: var(--gray);
-    letter-spacing: 0.1em;
-  }
-  
-  /* Hero bleed image */
-  .hero-bleed {
-    width: 100%;
-    margin-bottom: 80px;
-  }
-  
-  .hero-bleed img {
-    width: 100%;
-    height: auto;
-  }
-  
-  /* Colophon */
-  .colophon {
-    margin-top: 200px;
-    padding: 80px 40px;
-    text-align: center;
-    font-family: var(--display);
-    font-size: 32px;
-    font-style: italic;
-  }
-  
-  /* End artwork */
-  .end-art {
-    margin: 120px auto;
-    max-width: 800px;
-  }
-  
-  .end-figure img {
-    width: 100%;
-    height: auto;
-  }
-  
-  /* Footer */
-  .footer {
-    padding: 40px;
-    text-align: center;
-    font-family: var(--meta);
-    font-size: 10px;
-    color: var(--gray);
-    margin-bottom: 80px;
-  }
-  
-  /* Dotted circle motif - for portal elements */
-  .portal-dots {
-    display: inline-block;
-    width: 200px;
-    height: 200px;
-    border: 2px dotted var(--ink);
-    border-radius: 50%;
-    margin: 40px auto;
-  }
-  
-  /* Accessibility */
-  .skip-link {
-    position: absolute;
-    left: -10000px;
-    width: 1px;
-    height: 1px;
-    overflow: hidden;
-  }
-  
-  .skip-link:focus {
-    position: static;
-    width: auto;
-    height: auto;
-  }
-  
-  .visually-hidden {
-    position: absolute;
-    left: -10000px;
-    width: 1px;
-    height: 1px;
-    overflow: hidden;
-  }
-  
-  /* Footnote superscripts */
-  sup {
-    font-size: 0.7em;
-    vertical-align: super;
-    line-height: 0;
-  }
-  
-  /* Responsive adjustments */
-  @media (max-width: 768px) {
-    .container {
-      margin-top: 100px;
-    }
-    
-    .casestudy {
-      margin-top: 120px;
-    }
-    
-    .width75,
-    .width25 {
-      width: 100%;
-      padding: 0;
-    }
-    
-    .width25 {
-      margin-top: 40px;
-    }
-    
-    .title {
-      font-size: 48px;
-      margin-bottom: 30px;
-    }
-    
-    .quote {
-      margin: 100px auto;
-    }
-    
-    .quote-text {
-      font-size: 32px;
-    }
-  }
-  
-  /* Print styles */
-  @media print {
-    body {
-      font-size: 11pt;
-    }
-    
-    .casestudy {
-      page-break-before: always;
-    }
-  }
-
-
-  body {
-    margin: 0;
-    background: #f8f4ea url(backgroundpageweb.png) no-repeat center center fixed;
-    background-size: cover;
-  }
-
-  /* more air between case studies */
-.casestudy { margin-top: 280px; }
-.casestudy + .casestudy { margin-top: 340px; } /* extra gap after each */
-.title { margin-bottom: 70px; }                /* space under the section title */
-
-/* looser contents list */
-.contents { line-height: 2.8; }  /* bump up from ~2 */
-
-.big-title {
-    font-family: var(--display);
-    font-style: italic;
-    font-weight: 400;
-    letter-spacing: .01em;
-    line-height: .95;
-    font-size: clamp(56px, 9.5vw, 140px);
-    text-align: center;
-    margin: 12vh auto 8vh;
-    color: #111;
-    text-shadow: 0 0 12px rgba(255,255,255,.6);
-  }
-  .big-title .break { display:block; margin-top:.1em; }
-
-  /* Big title fills ~75% of viewport width */
-.site-header{
-    display:flex;
-    justify-content:center;
-    padding: 10vh 0 6vh;
-  }
-  
-  .big-title{
-    font-family: var(--display);
-    font-style: italic;
-    font-weight: 400;
-    line-height: .88;
-    letter-spacing: .01em;
-  
-    /* key bits */
-    max-width: 75vw;           /* target width */
-    font-size: clamp(96px, 16vw, 280px); /* scales up with screen */
-    text-align: center;
-  
-    color:#111;
-    text-shadow: 0 0 12px rgba(255,255,255,.6);
-  }
-  .big-title .break{ display:block; margin-top:.06em; }
-  
-  @media (max-width: 768px){
-    .big-title{ max-width: 92vw; font-size: clamp(56px, 12vw, 120px); }
-  }
-
-  /* Full-bleed repeating linen/paper texture */
-html, body { margin:0; min-height:100%; }
-
-body{
-  background: #f8f4ea url(backgroundpageweb.png) repeat top center fixed;
-  /* tune the tile size until it looks right: try 320–520px */
-  background-size: 420px auto;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-/* Full-bleed, non-repeating background */
-html, body { height: 100%; margin: 0; }
-
-body{
-  background-image: url("./backgroundpageweb.png");
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: cover;        /* fills the screen without tiling */
-  background-attachment: fixed;  /* remove this on mobile if it feels jumpy */
+/* ===== BASE STYLES ===== */
+html {
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-/* Make sure nothing paints over it */
-main, .page, .container { background: transparent; }
-/* Zoom to crop edges */
-body{ background-size: 115% auto; }  /* try 110–130% */
-
-/* ===== Full-screen image break / interlude ===== */
-.break-full {
-    position: relative;
-    width: 100%;
-    min-height: 100vh;                 /* fill the viewport */
-    background: url("./BREAKIMAGE.png") no-repeat center center;
-    background-size: cover;            /* full-bleed, no tiling */
-    overflow: clip;                    /* hide overlays that spill off edges */
-  }
-  
-  /* optional parallax (desktop only; mobile can be janky) */
-  @media (hover:hover) and (pointer:fine) {
-    .break-full.parallax { background-attachment: fixed; }
-  }
-  
-  /* optional subtle vignette to help foreground elements read */
-  .break-full::after {
-    content: "";
-    position: absolute; inset: 0;
-    background: radial-gradient(120% 70% at 50% 50%, transparent 60%, rgba(0,0,0,.10));
-    pointer-events: none;
-  }
-  
-  /* optional overlaid title on top of the break */
-  .break-title {
-    position: absolute;
-    left: 50%; bottom: 8vh; transform: translateX(-50%);
-    font-family: var(--display);
-    font-style: italic;
-    font-weight: 400;
-    line-height: .9;
-    text-align: center;
-    font-size: clamp(48px, 7vw, 140px);
-    color: #111;
-    text-shadow:
-      0 0 14px rgba(255,255,255,.85),
-      0 2px 40px rgba(255,255,255,.55);
-  }
-  
-  /* optional decorative overlays using your PNGs */
-  .break-dot {
-    position: absolute;
-    right: 3vw;
-    bottom: 4vh;
-    width: min(44vw, 560px);   /* scales but caps */
-    height: auto;
-    pointer-events: none;
-  }
-  
-  .break-icon {
-    position: absolute;
-    right: 6vw;
-    bottom: 16vh;
-    width: clamp(56px, 9vw, 120px);
-    height: auto;
-    pointer-events: none;
-  }
-
-  /* Bigger gap after every case */
-.casestudy { margin-bottom: 280px; }      /* add space after the whole case */
-
-/* Extra air *only* before the next case (stacked cases) */
-.casestudy + .casestudy { margin-top: 420px; }
-
-/* If you’re using the full-screen break section */
-.break-full { margin-top: clamp(140px, 12vh, 260px); }
-
-/* If the last figure in a case feels tight, bump its bottom margin */
-.width75 figure { margin-bottom: 60px; }
-
-/* Tighter quote without clamp */
-.quote-text{
-  /* pick a fixed size you like */
-  font-size: 76px;           /* change to any px you want */
-  line-height: .86;          /* pull lines closer (try .84–.90) */
-  margin: 70px auto 40px;    /* less air above/below if needed */
+body {
+  font-family: var(--font-body);
+  color: var(--color-graphite);
+  background: var(--color-paper);
+  line-height: 1.6;
 }
 
-/* If you’re using the “tape strip” spans, trim their extra padding */
-.quote-text .strip,
-.quote-text.stepped span{
-  padding-top: .02em;
-  padding-bottom: .02em;     /* was adding vertical space */
+/* ===== 10-COLUMN GRID SYSTEM ===== */
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  gap: var(--grid-gap);
+  max-width: var(--max-width);
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 var(--grid-margin);
 }
 
-/* Optional: if you still want it tighter */
-@media (min-width: 900px){
-  .quote-text{ line-height: .84; }
-}
+/* Grid spans for flexible layouts */
+.span-10 { grid-column: span 10; }
+.span-7 { grid-column: span 7; }
+.span-3 { grid-column: span 3; }
+.span-6 { grid-column: span 6; }
+.span-4 { grid-column: span 4; }
 
-/* tighten the intro quote */
-.quote-text{
-  line-height: 0.9 !important;
-}
+/* ===== TYPE SYSTEM ===== */
 
-
-/* === Big title: fixed to ~75% page width, no clamp === */
-.site-header {
-  display: flex;
-  justify-content: center;
-  padding: 10vh 0 6vh;
-}
-
-.site-header .big-title {
-  width: 75vw;          /* use width, not max-width */
-  max-width: none;      /* ignore earlier max-width */
-  margin: 0 auto;
-  text-align: center;
-
-  font-family: var(--display);
-  font-style: italic;
+/* Display Typography: Antiquarian Scribe */
+.type-hero {
+  font-family: var(--font-display);
   font-weight: 400;
-  line-height: .9;
-  letter-spacing: .01em;
-
-  /* no clamp — scale with viewport only */
-  font-size: 12vw !important;  /* tweak 10–14vw to taste */
-  color: #111;
-  text-shadow: 0 0 12px rgba(255,255,255,.6);
+  font-style: italic;
+  font-size: clamp(80px, 10vw, 140px);
+  line-height: 0.9;
+  letter-spacing: 0.01em;
+  text-align: center;
 }
 
-.big-title .break { display:block; margin-top:.06em; }
+.type-case-title {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: var(--type-case-title);
+  line-height: 1.1;
+  letter-spacing: 0.02em;
+}
+
+.type-location {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: var(--type-location);
+  color: var(--color-text-secondary);
+  letter-spacing: 0.04em;
+}
+
+.type-quote {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: clamp(36px, 4vw, 56px);
+  line-height: 1.2;
+  letter-spacing: 0.01em;
+}
+
+.type-marginalia {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 20px;
+  color: var(--color-text-secondary);
+  letter-spacing: 0.03em;
+}
+
+/* Body Typography: Source Serif 4 */
+.type-body {
+  font-family: var(--font-body);
+  font-size: var(--type-body);
+  line-height: 1.7;
+}
+
+.type-caption {
+  font-family: var(--font-body);
+  font-size: var(--type-caption);
+  line-height: 1.5;
+  color: var(--color-text-secondary);
+}
+
+.type-footnote {
+  font-family: var(--font-body);
+  font-size: var(--type-footnote);
+  line-height: 1.6;
+  color: var(--color-text-secondary);
+}
+
+/* Metadata Typography: Courier New */
+.type-metadata {
+  font-family: var(--font-meta);
+  font-size: var(--type-metadata);
+  line-height: 1.5;
+  color: var(--color-text-secondary);
+  letter-spacing: 0.02em;
+}
+
+.type-metadata-label {
+  font-family: var(--font-meta);
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  font-weight: 400;
+}
+
+/* ===== SITE HEADER ===== */
+.site-header {
+  text-align: center;
+  padding: var(--space-xxl) var(--grid-margin);
+  margin-bottom: var(--space-xl);
+}
+
+.site-title {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-style: italic;
+  font-size: clamp(80px, 10vw, 140px);
+  line-height: 0.9;
+  letter-spacing: 0.01em;
+  color: var(--color-graphite);
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.site-title-line {
+  display: block;
+  margin-top: 0.05em;
+}
+
+/* ===== HERO IMAGE (FULL BLEED) ===== */
+.hero-bleed {
+  width: 100%;
+  margin-bottom: var(--space-xxl);
+}
+
+.hero-bleed img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ===== QUOTE SECTIONS ===== */
+.quote-section {
+  max-width: 1000px;
+  margin: var(--space-section) auto;
+  padding: 0 var(--grid-margin);
+  text-align: center;
+}
+
+.quote-text {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: clamp(36px, 4vw, 56px);
+  line-height: 1.2;
+  letter-spacing: 0.01em;
+  color: var(--color-graphite);
+}
+
+.quote-section img {
+  max-width: 100%;
+  height: auto;
+  margin: var(--space-lg) 0;
+}
+
+/* ===== CONTENTS (TABLE OF CONTENTS) ===== */
+.contents {
+  max-width: 700px;
+  margin: var(--space-xxl) auto;
+  padding: 0 var(--grid-margin);
+  text-align: center;
+}
+
+.contents-title {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: var(--space-md);
+}
+
+.contents-list {
+  font-family: var(--font-body);
+  font-size: 15px;
+  line-height: 2.4;
+  list-style: none;
+}
+
+/* ===== CASE STUDY STRUCTURE ===== */
+.case-study {
+  margin-top: var(--space-section);
+  margin-bottom: var(--space-section);
+}
+
+.case-study-header {
+  grid-column: 1 / -1;
+  margin-bottom: var(--space-xl);
+}
+
+.case-study-title {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: var(--type-case-title);
+  line-height: 1.1;
+  letter-spacing: 0.02em;
+  margin-bottom: var(--space-sm);
+}
+
+.case-study-location {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: var(--type-location);
+  color: var(--color-text-secondary);
+  letter-spacing: 0.04em;
+}
+
+/* Main content: 7 columns */
+.case-study-content {
+  grid-column: span 7;
+}
+
+/* Sidebar: 3 columns */
+.case-study-sidebar {
+  grid-column: span 3;
+}
+
+/* ===== FIGURE & CAPTION (EDITORIAL ASSETS) ===== */
+.figure {
+  margin-bottom: var(--space-xl);
+}
+
+.figure-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  border: 1px solid var(--color-rule);
+}
+
+.figure-caption {
+  font-family: var(--font-body);
+  font-size: var(--type-caption);
+  line-height: 1.5;
+  color: var(--color-text-secondary);
+  margin-top: var(--space-sm);
+  padding-top: var(--space-sm);
+  border-top: 1px solid var(--color-rule);
+}
+
+.figure-number {
+  font-weight: 600;
+  color: var(--color-graphite);
+  font-variant-caps: small-caps;
+  letter-spacing: 0.05em;
+}
+
+.figure-credit {
+  font-family: var(--font-meta);
+  font-size: 9px;
+  color: var(--color-text-secondary);
+  margin-top: var(--space-xs);
+  display: block;
+}
+
+/* ===== BODY TEXT ===== */
+.body-text {
+  font-family: var(--font-body);
+  font-size: var(--type-body);
+  line-height: 1.7;
+  color: var(--color-graphite);
+}
+
+.body-text p {
+  margin-bottom: var(--space-md);
+}
+
+/* Footnote references */
+.footnote-ref {
+  font-size: 0.7em;
+  vertical-align: super;
+  line-height: 0;
+  color: var(--color-ochre);
+  font-weight: 600;
+}
+
+/* ===== METADATA BLOCK (EDITORIAL ASSETS) ===== */
+.metadata-block {
+  margin-top: var(--space-lg);
+  padding-top: var(--space-md);
+  border-top: 1px solid var(--color-rule);
+}
+
+.metadata-section {
+  margin-bottom: var(--space-md);
+}
+
+.metadata-label {
+  font-family: var(--font-meta);
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--color-graphite);
+  margin-bottom: var(--space-xs);
+  display: block;
+}
+
+.metadata-content {
+  font-family: var(--font-meta);
+  font-size: var(--type-metadata);
+  line-height: 1.6;
+  color: var(--color-text-secondary);
+}
+
+.metadata-list {
+  list-style: none;
+  font-family: var(--font-meta);
+  font-size: var(--type-metadata);
+  line-height: 1.8;
+  color: var(--color-text-secondary);
+}
+
+.metadata-list li::before {
+  content: "·";
+  margin-right: 8px;
+  color: var(--color-ochre);
+}
+
+/* ===== FOOTNOTES SECTION ===== */
+.footnotes {
+  margin-top: var(--space-xl);
+  padding-top: var(--space-lg);
+  border-top: 1px solid var(--color-rule);
+}
+
+.footnotes-title {
+  font-family: var(--font-meta);
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  margin-bottom: var(--space-md);
+}
+
+.footnote-item {
+  font-family: var(--font-body);
+  font-size: var(--type-footnote);
+  line-height: 1.6;
+  color: var(--color-text-secondary);
+  margin-bottom: var(--space-sm);
+}
+
+.footnote-number {
+  font-weight: 600;
+  color: var(--color-ochre);
+  margin-right: 6px;
+}
+
+/* ===== SECTION DIVIDER (PORTAL DOTS) ===== */
+.section-divider {
+  text-align: center;
+  margin: var(--space-section) 0;
+}
+
+.section-divider svg {
+  opacity: 0.6;
+}
+
+/* ===== MARGINALIA ===== */
+.marginalia {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 20px;
+  color: var(--color-text-secondary);
+  letter-spacing: 0.03em;
+  text-align: center;
+  margin: var(--space-xxl) auto;
+  max-width: 600px;
+  padding: 0 var(--grid-margin);
+}
+
+/* ===== FULL-SCREEN BREAK IMAGE ===== */
+.break-full {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  margin: var(--space-section) 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.break-full img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  inset: 0;
+}
+
+/* ===== COLOPHON ===== */
+.colophon {
+  max-width: 800px;
+  margin: var(--space-section) auto var(--space-xxl);
+  padding: 0 var(--grid-margin);
+  text-align: center;
+}
+
+.colophon p {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 28px;
+  color: var(--color-text-secondary);
+}
+
+/* ===== FOOTER ===== */
+.footer {
+  padding: var(--space-lg) var(--grid-margin);
+  text-align: center;
+  font-family: var(--font-meta);
+  font-size: var(--type-metadata);
+  color: var(--color-text-secondary);
+  border-top: 1px solid var(--color-rule);
+  margin-bottom: var(--space-xl);
+}
+
+/* ===== UTILITY CLASSES ===== */
+.rule-thin {
+  border: none;
+  border-top: 1px solid var(--color-rule);
+  margin: var(--space-lg) 0;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.color-ochre {
+  color: var(--color-ochre);
+}
+
+/* ===== RESPONSIVE BREAKPOINTS ===== */
+
+/* Tablet: 768px - 1024px */
+@media (max-width: 1024px) {
+  :root {
+    --grid-margin: 40px;
+    --type-case-title: 56px;
+    --type-location: 22px;
+    --space-section: 140px;
+  }
+
+  .case-study-content,
+  .case-study-sidebar {
+    grid-column: span 10;
+  }
+
+  .case-study-sidebar {
+    margin-top: var(--space-lg);
+  }
+}
+
+/* Mobile: < 768px */
+@media (max-width: 768px) {
+  :root {
+    --grid-margin: 24px;
+    --grid-gap: 16px;
+    --type-case-title: 48px;
+    --type-location: 18px;
+    --type-body: 14px;
+    --space-section: 100px;
+    --space-xxl: 60px;
+  }
+
+  .site-header {
+    padding: var(--space-xl) var(--grid-margin);
+  }
+
+  .quote-section {
+    margin: var(--space-xxl) auto;
+  }
+
+  .contents {
+    margin: var(--space-xl) auto;
+  }
+}
+
+/* ===== PRINT STYLES ===== */
+@media print {
+  body {
+    background: white;
+    font-size: 11pt;
+  }
+
+  .case-study {
+    page-break-before: always;
+  }
+
+  .figure-image {
+    max-height: 8in;
+    object-fit: contain;
+  }
+}
