@@ -1,756 +1,660 @@
-/* ===== Atlas of Honest Entrances - Refined CSS ===== */
+/* ================================================================
+   ATLAS OF HONEST ENTRANCES — REFINED EDITORIAL DESIGN
+   Clean, contemporary, authoritative
+   ================================================================ */
 
-/* Reset */
+/* ================================================================
+   1. RESET & BASE CONFIGURATION
+   ================================================================ */
+
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  
-  /* Typography Variables */
-  :root {
-    --display: "antiquarian-scribe", serif;
-    --body: "Source Serif 4", Georgia, serif;
-    --meta: "Courier New", monospace;
-    
-    /* Colors - clean, no parchment */
-    --ink: #1a1a1a;
-    --paper: #fdfcfa;
-    --gray: #666;
-    --accent: #8b4513;
-  }
-  
-  /* Base */
-  body {
-    font-family: var(--body);
-    color: var(--ink);
-    background: var(--paper);
-    line-height: 1.6;
-    font-size: 16px;
-  }
-  
-  /* Container layouts */
-  .container {
-    display: flex;
-    flex-wrap: wrap;
-    margin-top: 200px;
-    max-width: 1400px;
-    margin-left: auto;
-    margin-right: auto;
-    padding: 0 40px;
-  }
-  
-  .casestudy {
-    margin-top: 250px;
-  }
-  
-  /* Width classes for asymmetric layout */
-  .width100 {
-    width: 100%;
-  }
-  
-  .width75 {
-    width: 72%;
-    padding-right: 3%;
-  }
-  
-  .width25 {
-    width: 28%;
-    padding-left: 2%;
-  }
-  
-  /* Large Script Titles - Your signature element */
-  .title {
-    font-family: var(--display);
-    font-size: clamp(60px, 8vw, 100px);
-    font-weight: 400;
-    line-height: 1.1;
-    margin-bottom: 60px;
-    letter-spacing: 0.02em;
-  }
-  
-  .title img {
-    height: 80px;
-    width: auto;
-    vertical-align: middle;
-    margin-right: 20px;
-  }
-  
-  /* Main body text */
-  .text {
-    font-family: var(--body);
-    font-size: 15px;
-    line-height: 1.7;
-    font-style: italic;
-  }
-  
-  .text p {
-    margin-bottom: 20px;
-    text-align: justify;
-  }
-  
-  /* Hero images with captions */
-  .width75 figure {
-    width: 100%;
-    margin-bottom: 30px;
-  }
-  
-  .width75 img {
-    width: 100%;
-    height: auto;
-    display: block;
-  }
-  
-  /* Figure captions - adding authority */
-  figcaption {
-    margin-top: 12px;
-    font-family: var(--meta);
-    font-size: 11px;
-    line-height: 1.4;
-    color: var(--gray);
-  }
-  
-  .fig-number {
-    font-weight: bold;
-  }
-  
-  /* Notes/Metadata section */
-  .notes {
-    margin-top: 40px;
-    padding-top: 20px;
-    border-top: 1px solid rgba(0,0,0,0.1);
-    font-family: var(--meta);
-    font-size: 10px;
-    line-height: 1.5;
-    color: var(--gray);
-  }
-  
-  .notes h4 {
-    font-size: 9px;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    margin-bottom: 8px;
-    font-weight: normal;
-  }
-  
-  /* Quote sections - large script */
-  .quote {
-    margin: 200px auto;
-    max-width: 1000px;
-    padding: 0 40px;
-    text-align: center;
-  }
-  
-  .quote-text {
-    font-family: var(--display);
-    font-size: clamp(40px, 5vw, 70px);
-    line-height: 1.2;
-    font-style: italic;
-  }
-  
-  .quote img {
-    max-width: 100%;
-    height: auto;
-    margin: 40px 0;
-  }
-  
-  /* Marginalia - your poetic asides */
-  .marginalia {
-    font-family: var(--display);
-    font-size: 24px;
-    font-style: italic;
-    text-align: center;
-    margin: 80px auto;
-    max-width: 600px;
-    color: var(--gray);
-    letter-spacing: 0.05em;
-  }
-  
-  /* Metadata cards for Son Doong section */
-  .meta {
-    margin-top: 30px;
-  }
-  
-  .card {
-    background: rgba(255,255,255,0.5);
-    border: 1px solid rgba(0,0,0,0.08);
-    padding: 15px;
-    margin-bottom: 15px;
-    font-family: var(--meta);
-    font-size: 10px;
-  }
-  
-  .card h3 {
-    font-size: 9px;
-    text-transform: uppercase;
-    letter-spacing: 0.15em;
-    margin-bottom: 8px;
-    font-weight: normal;
-  }
-  
-  .card p, .card li {
-    line-height: 1.5;
-    color: var(--gray);
-  }
-  
-  .card ul {
-    list-style: none;
-    padding-left: 0;
-  }
-  
-  .card li {
-    margin-bottom: 4px;
-    padding-left: 12px;
-    position: relative;
-  }
-  
-  .card li:before {
-    content: "·";
-    position: absolute;
-    left: 0;
-  }
-  
-  /* Scale bar */
-  .scale {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-family: var(--meta);
-    font-size: 10px;
-    margin-top: 20px;
-  }
-  
-  .scale .bar {
-    width: 60px;
-    height: 1px;
-    background: var(--ink);
-  }
-  
-  /* Contents/navigation */
-  .contents {
-    font-family: var(--body);
-    font-size: 14px;
-    line-height: 2;
-    margin: 120px auto;
-    max-width: 600px;
-    text-align: center;
-  }
-  
-  /* Cover/intro sections */
-  .cover {
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  /* Site header */
-  .site-header {
-    text-align: center;
-    padding: 80px 40px;
-  }
-  
-  .site-header h1 {
-    font-family: var(--display);
-    font-size: clamp(48px, 6vw, 80px);
-    margin-bottom: 20px;
-  }
-  
-  .subtitle {
-    font-family: var(--meta);
-    font-size: 11px;
-    color: var(--gray);
-    letter-spacing: 0.1em;
-  }
-  
-  /* Hero bleed image */
-  .hero-bleed {
-    width: 100%;
-    margin-bottom: 80px;
-  }
-  
-  .hero-bleed img {
-    width: 100%;
-    height: auto;
-  }
-  
-  /* Colophon */
-  .colophon {
-    margin-top: 200px;
-    padding: 80px 40px;
-    text-align: center;
-    font-family: var(--display);
-    font-size: 32px;
-    font-style: italic;
-  }
-  
-  /* End artwork */
-  .end-art {
-    margin: 120px auto;
-    max-width: 800px;
-  }
-  
-  .end-figure img {
-    width: 100%;
-    height: auto;
-  }
-  
-  /* Footer */
-  .footer {
-    padding: 40px;
-    text-align: center;
-    font-family: var(--meta);
-    font-size: 10px;
-    color: var(--gray);
-    margin-bottom: 80px;
-  }
-  
-  /* Dotted circle motif - for portal elements */
-  .portal-dots {
-    display: inline-block;
-    width: 200px;
-    height: 200px;
-    border: 2px dotted var(--ink);
-    border-radius: 50%;
-    margin: 40px auto;
-  }
-  
-  /* Accessibility */
-  .skip-link {
-    position: absolute;
-    left: -10000px;
-    width: 1px;
-    height: 1px;
-    overflow: hidden;
-  }
-  
-  .skip-link:focus {
-    position: static;
-    width: auto;
-    height: auto;
-  }
-  
-  .visually-hidden {
-    position: absolute;
-    left: -10000px;
-    width: 1px;
-    height: 1px;
-    overflow: hidden;
-  }
-  
-  /* Footnote superscripts */
-  sup {
-    font-size: 0.7em;
-    vertical-align: super;
-    line-height: 0;
-  }
-  
-  /* Responsive adjustments */
-  @media (max-width: 768px) {
-    .container {
-      margin-top: 100px;
-    }
-    
-    .casestudy {
-      margin-top: 120px;
-    }
-    
-    .width75,
-    .width25 {
-      width: 100%;
-      padding: 0;
-    }
-    
-    .width25 {
-      margin-top: 40px;
-    }
-    
-    .title {
-      font-size: 48px;
-      margin-bottom: 30px;
-    }
-    
-    .quote {
-      margin: 100px auto;
-    }
-    
-    .quote-text {
-      font-size: 32px;
-    }
-  }
-  
-  /* Print styles */
-  @media print {
-    body {
-      font-size: 11pt;
-    }
-    
-    .casestudy {
-      page-break-before: always;
-    }
-  }
-
-
-  body {
-    margin: 0;
-    background: #f8f4ea url(backgroundpageweb.png) no-repeat center center fixed;
-    background-size: cover;
-  }
-
-  /* more air between case studies */
-.casestudy { margin-top: 280px; }
-.casestudy + .casestudy { margin-top: 340px; } /* extra gap after each */
-.title { margin-bottom: 70px; }                /* space under the section title */
-
-/* looser contents list */
-.contents { line-height: 2.8; }  /* bump up from ~2 */
-
-.big-title {
-    font-family: var(--display);
-    font-style: italic;
-    font-weight: 400;
-    letter-spacing: .01em;
-    line-height: .95;
-    font-size: clamp(56px, 9.5vw, 140px);
-    text-align: center;
-    margin: 12vh auto 8vh;
-    color: #111;
-    text-shadow: 0 0 12px rgba(255,255,255,.6);
-  }
-  .big-title .break { display:block; margin-top:.1em; }
-
-  /* Big title fills ~75% of viewport width */
-.site-header{
-    display:flex;
-    justify-content:center;
-    padding: 10vh 0 6vh;
-  }
-  
-  .big-title{
-    font-family: var(--display);
-    font-style: italic;
-    font-weight: 400;
-    line-height: .88;
-    letter-spacing: .01em;
-  
-    /* key bits */
-    max-width: 75vw;           /* target width */
-    font-size: clamp(96px, 16vw, 280px); /* scales up with screen */
-    text-align: center;
-  
-    color:#111;
-    text-shadow: 0 0 12px rgba(255,255,255,.6);
-  }
-  .big-title .break{ display:block; margin-top:.06em; }
-  
-  @media (max-width: 768px){
-    .big-title{ max-width: 92vw; font-size: clamp(56px, 12vw, 120px); }
-  }
-
-  /* Full-bleed repeating linen/paper texture */
-html, body { margin:0; min-height:100%; }
-
-body{
-  background: #f8f4ea url(backgroundpageweb.png) repeat top center fixed;
-  /* tune the tile size until it looks right: try 320–520px */
-  background-size: 420px auto;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-/* Full-bleed, non-repeating background */
-html, body { height: 100%; margin: 0; }
+/* ================================================================
+   2. DESIGN TOKENS (from README.md + refinements)
+   ================================================================ */
 
-body{
-  background-image: url("./backgroundpageweb.png");
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: cover;        /* fills the screen without tiling */
-  background-attachment: fixed;  /* remove this on mobile if it feels jumpy */
+:root {
+  /* Typography */
+  --font-display: "antiquarian-scribe", serif;
+  --font-body: "Source Serif 4", Georgia, serif;
+  --font-meta: "Courier New", "Courier", monospace;
+
+  /* Colors (from README.md) */
+  --color-accent: #C09C59;        /* ochre */
+  --color-ink: #222222;           /* graphite text */
+  --color-rule: #CFCFCF;          /* faint graphite */
+  --color-paper: #FAFAF7;         /* clean off-white, NO texture */
+  --color-gray: #666666;          /* metadata/captions */
+  --color-white: #FFFFFF;         /* figure backgrounds */
+
+  /* Grid System (10-column feel) */
+  --grid-columns: 10;
+  --grid-gap: 32px;
+  --content-max: 1440px;
+  --margin-outer: 80px;
+  --margin-inner: 40px;
+
+  /* Type Scale (consistent hierarchy) */
+  --type-xl: 96px;      /* Hero title */
+  --type-lg: 72px;      /* Case study titles */
+  --type-md: 48px;      /* Subtitles */
+  --type-sm: 36px;      /* Section headers */
+  --type-base: 16px;    /* Body text */
+  --type-caption: 13px; /* Figure captions */
+  --type-meta: 11px;    /* Metadata, footnotes */
+  --type-micro: 9px;    /* Labels, provenance */
+
+  /* Spacing Scale (consistent rhythm) */
+  --space-xs: 8px;
+  --space-sm: 16px;
+  --space-md: 32px;
+  --space-lg: 64px;
+  --space-xl: 96px;
+  --space-xxl: 160px;
+
+  /* Line heights */
+  --lh-tight: 1.1;
+  --lh-base: 1.6;
+  --lh-loose: 1.8;
 }
 
-/* Make sure nothing paints over it */
-main, .page, .container { background: transparent; }
-/* Zoom to crop edges */
-body{ background-size: 115% auto; }  /* try 110–130% */
+/* ================================================================
+   3. BASE STYLES
+   ================================================================ */
 
-/* ===== Full-screen image break / interlude ===== */
-.break-full {
-    position: relative;
-    width: 100%;
-    min-height: 100vh;                 /* fill the viewport */
-    background: url("./BREAKIMAGE.png") no-repeat center center;
-    background-size: cover;            /* full-bleed, no tiling */
-    overflow: clip;                    /* hide overlays that spill off edges */
-  }
-  
-  /* optional parallax (desktop only; mobile can be janky) */
-  @media (hover:hover) and (pointer:fine) {
-    .break-full.parallax { background-attachment: fixed; }
-  }
-  
-  /* optional subtle vignette to help foreground elements read */
-  .break-full::after {
-    content: "";
-    position: absolute; inset: 0;
-    background: radial-gradient(120% 70% at 50% 50%, transparent 60%, rgba(0,0,0,.10));
-    pointer-events: none;
-  }
-  
-  /* optional overlaid title on top of the break */
-  .break-title {
-    position: absolute;
-    left: 50%; bottom: 8vh; transform: translateX(-50%);
-    font-family: var(--display);
-    font-style: italic;
-    font-weight: 400;
-    line-height: .9;
-    text-align: center;
-    font-size: clamp(48px, 7vw, 140px);
-    color: #111;
-    text-shadow:
-      0 0 14px rgba(255,255,255,.85),
-      0 2px 40px rgba(255,255,255,.55);
-  }
-  
-  /* optional decorative overlays using your PNGs */
-  .break-dot {
-    position: absolute;
-    right: 3vw;
-    bottom: 4vh;
-    width: min(44vw, 560px);   /* scales but caps */
-    height: auto;
-    pointer-events: none;
-  }
-  
-  .break-icon {
-    position: absolute;
-    right: 6vw;
-    bottom: 16vh;
-    width: clamp(56px, 9vw, 120px);
-    height: auto;
-    pointer-events: none;
-  }
-
-  /* Bigger gap after every case */
-.casestudy { margin-bottom: 280px; }      /* add space after the whole case */
-
-/* Extra air *only* before the next case (stacked cases) */
-.casestudy + .casestudy { margin-top: 420px; }
-
-/* If you’re using the full-screen break section */
-.break-full { margin-top: clamp(140px, 12vh, 260px); }
-
-/* If the last figure in a case feels tight, bump its bottom margin */
-.width75 figure { margin-bottom: 60px; }
-
-/* Tighter quote without clamp */
-.quote-text{
-  /* pick a fixed size you like */
-  font-size: 76px;           /* change to any px you want */
-  line-height: .86;          /* pull lines closer (try .84–.90) */
-  margin: 70px auto 40px;    /* less air above/below if needed */
+html {
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-/* If you’re using the “tape strip” spans, trim their extra padding */
-.quote-text .strip,
-.quote-text.stepped span{
-  padding-top: .02em;
-  padding-bottom: .02em;     /* was adding vertical space */
+body {
+  font-family: var(--font-body);
+  font-size: var(--type-base);
+  line-height: var(--lh-base);
+  color: var(--color-ink);
+  background-color: var(--color-paper);
+  /* Clean background - NO parchment texture */
 }
 
-/* Optional: if you still want it tighter */
-@media (min-width: 900px){
-  .quote-text{ line-height: .84; }
-}
+/* ================================================================
+   4. TYPOGRAPHY SYSTEM
+   ================================================================ */
 
-/* tighten the intro quote */
-.quote-text{
-  line-height: 0.9 !important;
-}
-
-
-/* === Big title: fixed to ~75% page width, no clamp === */
-.site-header {
-  display: flex;
-  justify-content: center;
-  padding: 10vh 0 6vh;
-}
-
-.site-header .big-title {
-  width: 75vw;          /* use width, not max-width */
-  max-width: none;      /* ignore earlier max-width */
-  margin: 0 auto;
-  text-align: center;
-
-  font-family: var(--display);
-  font-style: italic;
+/* Display titles (Antiquarian Scribe) */
+.atlas-title-hero {
+  font-family: var(--font-display);
+  font-size: clamp(64px, 8vw, var(--type-xl));
   font-weight: 400;
-  line-height: .9;
-  letter-spacing: .01em;
-
-  /* no clamp — scale with viewport only */
-  font-size: 12vw !important;  /* tweak 10–14vw to taste */
-  color: #111;
-  text-shadow: 0 0 12px rgba(255,255,255,.6);
+  font-style: italic;
+  line-height: var(--lh-tight);
+  letter-spacing: 0.01em;
 }
 
-.big-title .break { display:block; margin-top:.06em; }
-
-
-/* Editorial introduction section
-   This section introduces the reader to the project’s counter-narrative.
-   It uses generous margins and centred typography to create an
-   understated, editorial feel rather than a corporate marketing tone. */
-   .introduction {
-    max-width: 720px;
-    margin: 6rem auto;
-    padding: 2rem;
-    text-align: center;
-    font-family: var(--body);
-    color: var(--ink);
-    background: var(--paper);
-    border-top: 1px solid var(--gray);
-    border-bottom: 1px solid var(--gray);
-  }
-  
-  .introduction h2 {
-    font-family: var(--display);
-    font-size: 2.25rem;
-    margin-bottom: 1rem;
-    color: var(--ink);
-    letter-spacing: 0.5px;
-  }
-  
-  .introduction p {
-    font-size: 1.1rem;
-    line-height: 1.7;
-    color: var(--gray);
-    max-width: 60ch;
-    margin: 0 auto;
-  }
-  
-
-
-
-  /* Closing section styling
-   Reflects the quiet editorial tone of the final statement. */
-.closing {
-  max-width: 750px;
-  margin: 8rem auto 6rem;
-  padding: 2.5rem;
-  border-top: 1px solid var(--gray);
-  border-bottom: 1px solid var(--gray);
-  text-align: left;
-  font-family: var(--body);
-  background: var(--paper);
-  color: var(--ink);
-  line-height: 1.7;
+.atlas-title-case {
+  font-family: var(--font-display);
+  font-size: clamp(48px, 6vw, var(--type-lg));
+  font-weight: 400;
+  font-style: italic;
+  line-height: var(--lh-tight);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
 }
 
-.closing h2 {
-  font-family: var(--display);
-  font-size: 2rem;
-  margin-bottom: 1.25rem;
+.atlas-subtitle {
+  font-family: var(--font-display);
+  font-size: clamp(24px, 3vw, var(--type-md));
+  font-weight: 400;
+  font-style: italic;
+  line-height: var(--lh-tight);
+  letter-spacing: 0.05em;
+  color: var(--color-gray);
+}
+
+/* Body text (Source Serif 4) */
+.atlas-body {
+  font-family: var(--font-body);
+  font-size: var(--type-base);
+  line-height: var(--lh-loose);
+  font-weight: 400;
+}
+
+.atlas-body-italic {
+  font-family: var(--font-body);
+  font-size: var(--type-base);
+  line-height: var(--lh-loose);
+  font-weight: 400;
+  font-style: italic;
+}
+
+/* Captions */
+.atlas-caption {
+  font-family: var(--font-meta);
+  font-size: var(--type-caption);
+  line-height: 1.5;
+  color: var(--color-gray);
+}
+
+/* Metadata */
+.atlas-meta {
+  font-family: var(--font-meta);
+  font-size: var(--type-meta);
+  line-height: 1.5;
+  color: var(--color-gray);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* Footnotes */
+.atlas-footnote {
+  font-family: var(--font-meta);
+  font-size: var(--type-meta);
+  line-height: 1.6;
+  color: var(--color-gray);
+}
+
+sup {
+  font-size: 0.65em;
+  vertical-align: super;
+  line-height: 0;
+  color: var(--color-accent);
+}
+
+/* Labels (A, B, C panel markers) */
+.atlas-label {
+  font-family: var(--font-meta);
+  font-size: var(--type-micro);
+  font-weight: bold;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+/* ================================================================
+   5. LAYOUT SYSTEM (10-column grid)
+   ================================================================ */
+
+.atlas-container {
+  max-width: var(--content-max);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--margin-outer);
+  padding-right: var(--margin-outer);
+}
+
+.atlas-grid {
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  gap: var(--grid-gap);
+}
+
+/* Column spans */
+.col-span-1 { grid-column: span 1; }
+.col-span-2 { grid-column: span 2; }
+.col-span-3 { grid-column: span 3; }
+.col-span-4 { grid-column: span 4; }
+.col-span-5 { grid-column: span 5; }
+.col-span-6 { grid-column: span 6; }
+.col-span-7 { grid-column: span 7; }
+.col-span-8 { grid-column: span 8; }
+.col-span-9 { grid-column: span 9; }
+.col-span-10 { grid-column: span 10; }
+
+/* ================================================================
+   6. COMPONENTS - Site Header
+   ================================================================ */
+
+.site-header {
   text-align: center;
-  letter-spacing: 0.5px;
-  color: var(--ink);
+  padding: var(--space-xxl) var(--margin-outer);
+  margin-bottom: var(--space-lg);
 }
 
-.closing p {
-  font-size: 1.05rem;
-  color: var(--gray);
-  margin-bottom: 1.5rem;
+.site-header__title {
+  composes: atlas-title-hero;
+  margin-bottom: var(--space-md);
+  color: var(--color-ink);
 }
 
-.closing .credit {
-  text-align: right;
-  font-family: var(--meta);
-  color: var(--gray);
-  font-size: 0.9rem;
-  letter-spacing: 0.2px;
+/* ================================================================
+   7. COMPONENTS - Introduction
+   ================================================================ */
+
+.introduction {
+  max-width: 800px;
+  margin: var(--space-xxl) auto;
+  padding: var(--space-lg) var(--margin-inner);
+  text-align: center;
+  border-top: 1px solid var(--color-rule);
+  border-bottom: 1px solid var(--color-rule);
 }
 
+.introduction__title {
+  font-family: var(--font-display);
+  font-size: var(--type-sm);
+  font-style: italic;
+  margin-bottom: var(--space-md);
+  letter-spacing: 0.02em;
+}
 
+.introduction__text {
+  composes: atlas-body;
+  max-width: 65ch;
+  margin: 0 auto;
+}
 
+/* ================================================================
+   8. COMPONENTS - Contents
+   ================================================================ */
 
+.contents {
+  max-width: 600px;
+  margin: var(--space-xxl) auto;
+  padding: 0 var(--margin-inner);
+  text-align: center;
+  font-family: var(--font-body);
+  font-size: 15px;
+  line-height: 2.4;
+}
 
+.contents strong {
+  font-family: var(--font-meta);
+  font-size: var(--type-meta);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: var(--space-md);
+}
 
+/* ================================================================
+   9. COMPONENTS - Hero Image
+   ================================================================ */
 
+.hero-bleed {
+  width: 100%;
+  margin-bottom: var(--space-xxl);
+}
 
+.hero-bleed figure {
+  margin: 0;
+}
 
+.hero-bleed img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
 
+/* ================================================================
+   10. COMPONENTS - Quote Sections
+   ================================================================ */
 
+.quote {
+  max-width: 900px;
+  margin: var(--space-xxl) auto;
+  padding: 0 var(--margin-outer);
+  text-align: center;
+}
 
+.quote__text {
+  font-family: var(--font-display);
+  font-size: clamp(32px, 5vw, 56px);
+  font-style: italic;
+  line-height: 1.15;
+  letter-spacing: 0.01em;
+  color: var(--color-ink);
+}
 
+.quote img {
+  max-width: 100%;
+  height: auto;
+  margin: var(--space-lg) 0;
+}
 
+/* ================================================================
+   11. COMPONENTS - Marginalia
+   ================================================================ */
 
+.marginalia {
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-style: italic;
+  text-align: center;
+  margin: var(--space-xl) auto;
+  max-width: 600px;
+  padding: 0 var(--margin-inner);
+  color: var(--color-gray);
+  letter-spacing: 0.03em;
+}
 
+/* ================================================================
+   12. COMPONENTS - Case Study (UNIFIED PATTERN FOR ALL 5)
+   ================================================================ */
 
+.case {
+  margin: calc(var(--space-xxl) * 1.5) auto;
+  padding: 0;
+}
 
-/* === Atlas Case Pattern (unified across all plates) === */
-.case { margin: 220px auto; max-width: 1600px; padding: 0 40px; }
 .case__titleblock {
-  text-align: center; margin-bottom: 80px;
-}
-.case__title {
-  font-family: var(--display); font-style: italic;
-  font-size: clamp(56px, 7vw, 100px);
-  letter-spacing: 0.06em; line-height: 1; margin: 0;
-}
-.case__subtitle {
-  display: block; margin-top: 8px;
-  font-family: var(--display); font-style: italic;
-  font-size: clamp(28px, 3.5vw, 48px);
-  letter-spacing: 0.05em; color: var(--gray);
+  text-align: center;
+  margin-bottom: var(--space-xl);
 }
 
-/* 3-column editorial grid (Text / Figures / Meta) */
+.case__number {
+  composes: atlas-meta;
+  display: block;
+  margin-bottom: var(--space-sm);
+}
+
+.case__title {
+  composes: atlas-title-case;
+  margin: 0;
+}
+
+.case__subtitle {
+  composes: atlas-subtitle;
+  display: block;
+  margin-top: var(--space-sm);
+}
+
+/* Grid: Text (3 cols) | Figures (4 cols) | Metadata (3 cols) */
 .case__grid {
   display: grid;
-  grid-template-columns: 1fr 1.2fr 1.5fr; /* tweak to taste */
-  gap: 50px; align-items: start;
+  grid-template-columns: repeat(10, 1fr);
+  gap: var(--grid-gap);
+  align-items: start;
 }
 
-/* Left column: body text (your italic Source Serif) */
-.case__text { font-family: var(--body); font-size: 14px; line-height: 1.7; text-align: justify; }
-
-/* Middle column: figures stack with captions */
-.case__fig figure { background: #fff; border: 1px solid #ddd; padding: 12px; margin-bottom: 22px; }
-.case__fig img { width: 100%; height: auto; display: block; opacity: .92; }
-.case__fig figcaption { margin-top: 8px; font-family: var(--meta); font-size: 11px; color: var(--gray); }
-.case__panel-label { font-family: var(--meta); font-size: 9px; font-weight: bold; margin-bottom: 6px; }
-
-/* Right column: method / notes cards (Son Đoòng style) */
-.case__meta .card { background: rgba(255,255,255,0.5); border: 1px solid rgba(0,0,0,0.08);
-  padding: 15px; margin-bottom: 15px; font-family: var(--meta); font-size: 10px; }
-.case__meta .card h3 { font-size: 9px; text-transform: uppercase; letter-spacing: .15em; margin: 0 0 8px; }
-.case__meta .card ul { list-style: none; padding: 0; margin: 0; }
-.case__meta .card li { margin-bottom: 4px; padding-left: 12px; position: relative; color: var(--gray); }
-.case__meta .card li::before { content: "·"; position: absolute; left: 0; }
-
-/* Scale / provenance helpers (optional) */
-.case__scale { display: flex; align-items: center; gap: 10px; font-family: var(--meta); font-size: 10px; margin-top: 12px; }
-.case__scale .bar { width: 60px; height: 1px; background: var(--ink); }
-
-/* Responsive collapse */
-@media (max-width: 900px){
-  .case__grid { grid-template-columns: 1fr; gap: 28px; }
+.case__text {
+  grid-column: 1 / 4;
+  composes: atlas-body-italic;
+  text-align: justify;
+  padding-right: var(--space-md);
 }
 
-
-
-
-:root{
-  --paper:#fdfbf6;   /* warm off-white */
-  --ink:#1a1a1a;
-  --gray:#6e6e6e;
+.case__text p {
+  margin-bottom: var(--space-md);
 }
 
-/* Global background */
-body{
-  color:var(--ink);
-  background-color:var(--paper);
-  background-image:
-    radial-gradient(circle at 1px 1px, rgba(0,0,0,.028) 1px, transparent 0), /* micro grain */
-    linear-gradient(to bottom, rgba(0,0,0,.035) 0%, rgba(0,0,0,0) 18%, rgba(0,0,0,0) 82%, rgba(0,0,0,.035) 100%); /* lab falloff */
-  background-size: 3px 3px, 100% 100%;
+.case__figures {
+  grid-column: 4 / 8;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
 }
+
+.case__metadata {
+  grid-column: 8 / 11;
+  padding-left: var(--space-md);
+}
+
+/* ================================================================
+   13. COMPONENTS - Figure Panel (with A, B, C labels)
+   ================================================================ */
+
+.figure-panel {
+  background: var(--color-white);
+  border: 1px solid var(--color-rule);
+  padding: 16px;
+}
+
+.figure-panel__label {
+  composes: atlas-label;
+  display: block;
+  margin-bottom: var(--space-xs);
+}
+
+.figure-panel__image {
+  width: 100%;
+  height: auto;
+  display: block;
+  margin-bottom: var(--space-sm);
+}
+
+.figure-panel__caption {
+  composes: atlas-caption;
+}
+
+.fig-number {
+  font-weight: bold;
+  color: var(--color-ink);
+}
+
+/* ================================================================
+   14. COMPONENTS - Metadata Card
+   ================================================================ */
+
+.meta-card {
+  background: rgba(255, 255, 255, 0.6);
+  border: 1px solid var(--color-rule);
+  padding: var(--space-sm);
+  margin-bottom: var(--space-sm);
+}
+
+.meta-card__title {
+  composes: atlas-meta;
+  margin-bottom: var(--space-xs);
+  font-weight: normal;
+}
+
+.meta-card__content {
+  composes: atlas-footnote;
+  font-size: var(--type-meta);
+}
+
+.meta-card__content ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.meta-card__content li {
+  position: relative;
+  padding-left: 12px;
+  margin-bottom: 4px;
+}
+
+.meta-card__content li::before {
+  content: "·";
+  position: absolute;
+  left: 0;
+  color: var(--color-gray);
+}
+
+/* ================================================================
+   15. COMPONENTS - Scale Bar
+   ================================================================ */
+
+.scale-bar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: var(--space-md);
+  font-family: var(--font-meta);
+  font-size: var(--type-micro);
+  color: var(--color-ink);
+}
+
+.scale-bar__line {
+  width: 60px;
+  height: 1px;
+  background: var(--color-ink);
+}
+
+/* ================================================================
+   16. COMPONENTS - Footnotes Section
+   ================================================================ */
+
+.footnotes {
+  margin-top: var(--space-lg);
+  padding-top: var(--space-md);
+  border-top: 1px solid var(--color-rule);
+}
+
+.footnotes__title {
+  composes: atlas-meta;
+  margin-bottom: var(--space-sm);
+}
+
+.footnote-item {
+  composes: atlas-footnote;
+  margin-bottom: var(--space-sm);
+  position: relative;
+  padding-left: 20px;
+}
+
+.footnote-item__number {
+  position: absolute;
+  left: 0;
+  color: var(--color-accent);
+}
+
+/* ================================================================
+   17. COMPONENTS - Section Divider
+   ================================================================ */
+
+.section-divider {
+  text-align: center;
+  margin: var(--space-xxl) 0;
+}
+
+.section-divider svg {
+  width: 300px;
+  height: 60px;
+}
+
+/* ================================================================
+   18. COMPONENTS - Closing
+   ================================================================ */
+
+.closing {
+  max-width: 800px;
+  margin: var(--space-xxl) auto;
+  padding: var(--space-lg) var(--margin-inner);
+  border-top: 1px solid var(--color-rule);
+  border-bottom: 1px solid var(--color-rule);
+}
+
+.closing__title {
+  font-family: var(--font-display);
+  font-size: var(--type-sm);
+  font-style: italic;
+  margin-bottom: var(--space-md);
+  text-align: center;
+}
+
+.closing__text {
+  composes: atlas-body;
+  margin-bottom: var(--space-md);
+}
+
+.closing__credit {
+  text-align: right;
+  font-family: var(--font-meta);
+  font-size: var(--type-meta);
+  color: var(--color-gray);
+  margin-top: var(--space-lg);
+}
+
+/* ================================================================
+   19. COMPONENTS - Colophon
+   ================================================================ */
+
+.colophon {
+  margin-top: var(--space-xxl);
+  padding: var(--space-xl) var(--margin-inner);
+  text-align: center;
+  font-family: var(--font-display);
+  font-size: 28px;
+  font-style: italic;
+  color: var(--color-gray);
+}
+
+/* ================================================================
+   20. COMPONENTS - Footer
+   ================================================================ */
+
+.footer {
+  padding: var(--space-lg) var(--margin-inner);
+  text-align: center;
+  font-family: var(--font-meta);
+  font-size: var(--type-micro);
+  color: var(--color-gray);
+  margin-bottom: var(--space-xl);
+}
+
+/* ================================================================
+   21. RESPONSIVE BREAKPOINTS
+   ================================================================ */
+
+@media (max-width: 1024px) {
+  :root {
+    --margin-outer: 40px;
+  }
+
+  .case__grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-lg);
+  }
+
+  .case__text,
+  .case__figures,
+  .case__metadata {
+    grid-column: 1 / -1;
+    padding: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  :root {
+    --margin-outer: 24px;
+    --margin-inner: 24px;
+  }
+
+  .atlas-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .case {
+    margin: var(--space-xl) auto;
+  }
+
+  .quote {
+    margin: var(--space-lg) auto;
+  }
+}
+
+/* ================================================================
+   22. UTILITIES
+   ================================================================ */
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.mb-0 { margin-bottom: 0; }
+.mb-sm { margin-bottom: var(--space-sm); }
+.mb-md { margin-bottom: var(--space-md); }
+.mb-lg { margin-bottom: var(--space-lg); }
+.mb-xl { margin-bottom: var(--space-xl); }
+
+.mt-0 { margin-top: 0; }
+.mt-sm { margin-top: var(--space-sm); }
+.mt-md { margin-top: var(--space-md); }
+.mt-lg { margin-top: var(--space-lg); }
+.mt-xl { margin-top: var(--space-xl); }
