@@ -62,7 +62,7 @@
   /* Large Script Titles - Your signature element */
   .title {
     font-family: var(--display);
-    font-size: clamp(60px, 8vw, 100px);
+    font-size: 85px;
     font-weight: 400;
     line-height: 1.1;
     margin-bottom: 60px;
@@ -94,11 +94,33 @@
     width: 100%;
     margin-bottom: 30px;
   }
-  
+
   .width75 img {
-    width: 100%;
+    max-width: 100%;
     height: auto;
     display: block;
+  }
+
+  /* Hero images (main feature images) */
+  .width75 figure > img {
+    width: 650px;
+    max-width: 100%;
+  }
+
+  /* Small images in grids */
+  .width75 img.small-img {
+    width: 280px;
+    max-width: 100%;
+  }
+
+  .width75 img.medium-img {
+    width: 420px;
+    max-width: 100%;
+  }
+
+  .width75 img.large-img {
+    width: 600px;
+    max-width: 100%;
   }
   
   /* Figure captions - adding authority */
@@ -143,8 +165,8 @@
   
   .quote-text {
     font-family: var(--display);
-    font-size: clamp(40px, 5vw, 70px);
-    line-height: 1.2;
+    font-size: 76px;
+    line-height: 0.9;
     font-style: italic;
   }
   
@@ -252,7 +274,7 @@
   
   .site-header h1 {
     font-family: var(--display);
-    font-size: clamp(48px, 6vw, 80px);
+    font-size: 72px;
     margin-bottom: 20px;
   }
   
@@ -411,7 +433,7 @@
     font-weight: 400;
     letter-spacing: .01em;
     line-height: .95;
-    font-size: clamp(56px, 9.5vw, 140px);
+    font-size: 120px;
     text-align: center;
     margin: 12vh auto 8vh;
     color: #111;
@@ -432,20 +454,16 @@
     font-weight: 400;
     line-height: .88;
     letter-spacing: .01em;
-  
+
     /* key bits */
-    max-width: 75vw;           /* target width */
-    font-size: clamp(96px, 16vw, 280px); /* scales up with screen */
+    max-width: 75vw;           /* target width - keeping responsive */
+    font-size: 180px;
     text-align: center;
-  
+
     color:#111;
     text-shadow: 0 0 12px rgba(255,255,255,.6);
   }
   .big-title .break{ display:block; margin-top:.06em; }
-  
-  @media (max-width: 768px){
-    .big-title{ max-width: 92vw; font-size: clamp(56px, 12vw, 120px); }
-  }
 
   /* Full-bleed repeating linen/paper texture */
 html, body { margin:0; min-height:100%; }
@@ -504,7 +522,7 @@ body{ background-size: 115% auto; }  /* try 110–130% */
     font-weight: 400;
     line-height: .9;
     text-align: center;
-    font-size: clamp(48px, 7vw, 140px);
+    font-size: 110px;
     color: #111;
     text-shadow:
       0 0 14px rgba(255,255,255,.85),
@@ -516,16 +534,16 @@ body{ background-size: 115% auto; }  /* try 110–130% */
     position: absolute;
     right: 3vw;
     bottom: 4vh;
-    width: min(44vw, 560px);   /* scales but caps */
+    width: 560px;
     height: auto;
     pointer-events: none;
   }
-  
+
   .break-icon {
     position: absolute;
     right: 6vw;
     bottom: 16vh;
-    width: clamp(56px, 9vw, 120px);
+    width: 100px;
     height: auto;
     pointer-events: none;
   }
@@ -536,8 +554,8 @@ body{ background-size: 115% auto; }  /* try 110–130% */
 /* Extra air *only* before the next case (stacked cases) */
 .casestudy + .casestudy { margin-top: 420px; }
 
-/* If you’re using the full-screen break section */
-.break-full { margin-top: clamp(140px, 12vh, 260px); }
+/* If you're using the full-screen break section */
+.break-full { margin-top: 200px; }
 
 /* If the last figure in a case feels tight, bump its bottom margin */
 .width75 figure { margin-bottom: 60px; }
@@ -545,30 +563,20 @@ body{ background-size: 115% auto; }  /* try 110–130% */
 /* Tighter quote without clamp */
 .quote-text{
   /* pick a fixed size you like */
-  font-size: 76px;           /* change to any px you want */
-  line-height: .86;          /* pull lines closer (try .84–.90) */
-  margin: 70px auto 40px;    /* less air above/below if needed */
+  font-size: 76px;
+  line-height: 0.9;
+  margin: 70px auto 40px;
 }
 
-/* If you’re using the “tape strip” spans, trim their extra padding */
+/* If you're using the "tape strip" spans, trim their extra padding */
 .quote-text .strip,
 .quote-text.stepped span{
   padding-top: .02em;
-  padding-bottom: .02em;     /* was adding vertical space */
-}
-
-/* Optional: if you still want it tighter */
-@media (min-width: 900px){
-  .quote-text{ line-height: .84; }
-}
-
-/* tighten the intro quote */
-.quote-text{
-  line-height: 0.9 !important;
+  padding-bottom: .02em;
 }
 
 
-/* === Big title: fixed to ~75% page width, no clamp === */
+/* === Big title: fixed size === */
 .site-header {
   display: flex;
   justify-content: center;
@@ -576,8 +584,8 @@ body{ background-size: 115% auto; }  /* try 110–130% */
 }
 
 .site-header .big-title {
-  width: 75vw;          /* use width, not max-width */
-  max-width: none;      /* ignore earlier max-width */
+  width: 75vw;          /* keep width responsive for centering */
+  max-width: none;
   margin: 0 auto;
   text-align: center;
 
@@ -587,8 +595,7 @@ body{ background-size: 115% auto; }  /* try 110–130% */
   line-height: .9;
   letter-spacing: .01em;
 
-  /* no clamp — scale with viewport only */
-  font-size: 12vw !important;  /* tweak 10–14vw to taste */
+  font-size: 180px;
   color: #111;
   text-shadow: 0 0 12px rgba(255,255,255,.6);
 }
